@@ -72,6 +72,12 @@ ruleTester.run('no-duplicate-requires', rule, {
       errors: [{
         message: 'Fill me in.',
       }],
+    },
+    {
+      code: "require('/tmp/test.json'); require('/tmp/test');",
+      errors: [{
+        message: 'Fill me in.',
+      }],
     }
   ],
 });
