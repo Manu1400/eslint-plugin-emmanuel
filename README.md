@@ -45,7 +45,6 @@ Then configure the rules you want to use under the rules section.
 
 * Fill in provided rules here
 
+## When Not To Use It
 
-
-
-
+If you want to use the <a href="http://requirejs.org/docs/api.html#cjsmodule">Simplified CommonJS Wrapper</a> format for your modules, you should not use this rule.
