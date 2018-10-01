@@ -33,6 +33,12 @@ ruleTester.run('no-duplicate-requires', rule, {
     },
     {
       code: "var a = require('test'); var b = require('./test.json');",
+    },
+    {
+      code: "if (true) { var fs = require('fs'); }"
+    },
+    {
+      code: "var bar = require(getName()); var foo = require(\"getName\")"
     }
   ],
 
@@ -78,6 +84,12 @@ ruleTester.run('no-duplicate-requires', rule, {
       errors: [{
         message: 'Fill me in.',
       }],
+    },
+    {
+        code: "var bar = require('getName'); var foo = require(\"getName\")",
+        errors: [{
+            message: "Fill me in.",
+        }]
     }
   ],
 });

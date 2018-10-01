@@ -35,6 +35,12 @@ ruleTester.run("no-empty-requires", rule, {
       },
       {
         code: "require",
+      },
+      {
+        code: "var bar = require(getName())"
+      },
+      {
+        code: "var foo = require('foo' + VERSION); var bar = require('foo')"
       }
     ],
 
