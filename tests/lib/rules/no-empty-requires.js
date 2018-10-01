@@ -32,6 +32,9 @@ ruleTester.run("no-empty-requires", rule, {
       },
       {
         code: "require('./file');",
+      },
+      {
+        code: "require",
       }
     ],
 

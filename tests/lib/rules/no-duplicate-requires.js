@@ -28,6 +28,12 @@ ruleTester.run('no-duplicate-requires', rule, {
     {
       code: "var a = require('./file'); var b = require('./other-file');",
     },
+    {
+      code: "require",
+    },
+    {
+      code: "var a = require('test'); var b = require('./test.json');",
+    }
   ],
 
   invalid: [
@@ -44,7 +50,13 @@ ruleTester.run('no-duplicate-requires', rule, {
       }],
     },
     {
-      code: "var a = require('module'); var b = require('module.js');",
+      code: "var a = require('./module'); var b = require('./module.js');",
+      errors: [{
+        message: 'Fill me in.',
+      }],
+    },
+    {
+      code: "var a = require('./test'); var b = require('./test.json');",
       errors: [{
         message: 'Fill me in.',
       }],
