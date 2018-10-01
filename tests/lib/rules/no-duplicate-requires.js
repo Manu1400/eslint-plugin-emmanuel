@@ -39,6 +39,12 @@ ruleTester.run('no-duplicate-requires', rule, {
     },
     {
       code: "var bar = require(getName()); var foo = require(\"getName\")"
+    },
+    {
+      code: "require('.')"
+    },
+    {
+      code: "var async = require('async'), debug = require('diagnostics')('my-module')"
     }
   ],
 
@@ -90,6 +96,26 @@ ruleTester.run('no-duplicate-requires', rule, {
         errors: [{
             message: "Fill me in.",
         }]
+    },
+    {
+      code: "var a = require('.'); var b = require('.')",
+      errors: [{
+          message: "Fill me in.",
+      }]
+    },
+    {
+      code: "var a = require('/tmp//test'); var b = require('/tmp/test')",
+      errors: [{
+          message: "Fill me in.",
+      }]
+    },
+    /*
+    {
+      code: "var a = require('module'), b = require('module')",
+      errors: [{
+          message: "Fill me in.",
+      }]
     }
+    */
   ],
 });
