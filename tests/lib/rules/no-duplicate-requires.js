@@ -23,6 +23,9 @@ ruleTester.run("no-duplicate-requires", rule, {
     valid: [
       {
         code: "var a = require('module'); var b = require('other-module');"
+      },
+      {
+        code: "var a = require('./file'); var b = require('./other-file');"
       }
     ],
 
@@ -34,10 +37,22 @@ ruleTester.run("no-duplicate-requires", rule, {
             }]
         },
         {
+            code: "var a = require('module.js'); var b = require('module.js');",
+            errors: [{
+                message: "Fill me in."
+            }]
+        },
+        {
             code: "var a = require('./file'); var b = require('./file');",
             errors: [{
                 message: "Fill me in."
             }]
         },
+        {
+            code: "require('./file'); require('./file');",
+            errors: [{
+                message: "Fill me in."
+            }]
+        }
     ]
 });
