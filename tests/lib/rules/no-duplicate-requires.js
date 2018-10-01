@@ -43,6 +43,12 @@ ruleTester.run("no-duplicate-requires", rule, {
             }]
         },
         {
+            code: "var a = require('module'); var b = require('module.js');",
+            errors: [{
+                message: "Fill me in."
+            }]
+        },
+        {
             code: "var a = require('./file'); var b = require('./file');",
             errors: [{
                 message: "Fill me in."
