@@ -1,0 +1,7 @@
+{
+  "name": "eslint-config-unicorn-tester",
+  "dependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-emmanuel": "file:../../.."
+  }
+}

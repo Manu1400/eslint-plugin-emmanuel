@@ -33,7 +33,6 @@
     "arithmetic/calc": "warn",
     "no-undef": "warn",
     "no-unmodified-loop-condition": "warn",
-    "no-hyogo-police/infinite-loop": "warn",
     "nuxt/no-this-in-fetch-data": "warn",
     "nuxt/no-this-in-fetch-data": "warn",
     "no-invalid-regexp": "warn",
@@ -100,10 +99,6 @@
         "message": "Using 'RegExp' is not allowed with > two args"
       },
       {
-        "selector": "Literal[regex]",
-        "message": "avoid regular expression literal, see https://github.com/eslint/eslint/issues/11538"
-      },
-      {
         "selector": "CatchClause[param=null]",
         "message": "Proposal: no-optional-catch-binding rule, see https://github.com/eslint/eslint/issues/10264"
       },
@@ -137,20 +132,13 @@
     "markdown",
     "emmanuel",
     "arca",
-    "no-hyogo-police",
     "nuxt",
-    "@manu1400/eslint-plugin-jsonschema",
-    "eslint-plugin-jsonschema",
     "json",
     "arithmetic",
     "eslint-plugin"
   ],
-  "settings": {
-    "jsonschema": {
-        "schemaDirectory": [ "./schema", "schema" ]
-    }
-  },
   "extends": [
-      "plugin:eslint-plugin/recommended"
+      "plugin:eslint-plugin/recommended",
+      "plugin:emmanuel/recommended"
   ]
 }

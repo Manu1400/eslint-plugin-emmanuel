@@ -1,6 +1,6 @@
 # eslint-plugin-emmanuel
 
-My first ESLint plugin, for https://github.com/sindresorhus/eslint-plugin-unicorn/issues/129
+My ESLint plugin
 
 ## Installation
 
