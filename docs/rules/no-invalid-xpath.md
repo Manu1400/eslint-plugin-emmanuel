@@ -1,4 +1,4 @@
-# eslint-plugin-import offer a rule to report when a resolved path is imported more than once, but that doesn't work with require (no-duplicate-requires)
+# Check XPath expressions and avoid magic number (no-invalid-xpath)
 
 Please describe the origin of the rule here.
 

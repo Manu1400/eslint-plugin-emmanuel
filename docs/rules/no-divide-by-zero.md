@@ -1,4 +1,4 @@
-# eslint-plugin-import offer a rule to report when a resolved path is imported more than once, but that doesn't work with require (no-duplicate-requires)
+# No divide by zero (no-divide-by-zero)
 
 Please describe the origin of the rule here.
 

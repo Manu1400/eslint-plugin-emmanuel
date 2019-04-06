@@ -1,0 +1,3 @@
+isSecureContext()
+
+isSecureContext

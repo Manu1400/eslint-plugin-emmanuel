@@ -1,4 +1,4 @@
-# Find require() or require(&#34;&#34;) (no-empty-requires)
+# Find require() or require("") (no-empty-requires)
 
 Please describe the origin of the rule here.
 

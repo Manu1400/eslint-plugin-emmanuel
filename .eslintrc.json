@@ -1,0 +1,156 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+      "ecmaVersion": 2017
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "BigInt": "function",
+    "BigInt64Array": "function",
+    "BigUint64Array": "function",
+    "CivilDate": "function",
+    "CivilDateTime": "function",
+    "Instant": "function",
+    "ZonedInstant": "function"
+  },
+  "rules": {
+    "arrow-body-style": "off",
+    "no-console": "off",
+    "no-continue": "off",
+    "emmanuel/no-very-large-array": ["off", {"maxValue": 10}],
+    "emmanuel/no-number-useless": "warn",
+    "emmanuel/no-divide-by-zero": "warn",
+    "emmanuel/no-special-number": "warn",
+    "emmanuel/no-nan": "warn",
+    "emmanuel/securecontext": "warn",
+    "emmanuel/no-invalid-xpath": "warn",
+    "emmanuel/math-shortcut": "warn",
+    "emmanuel/no-useless-concat": "warn",
+    "no-useless-concat": "off",
+    "arithmetic/calc": "warn",
+    "no-undef": "warn",
+    "no-unmodified-loop-condition": "warn",
+    "no-hyogo-police/infinite-loop": "warn",
+    "nuxt/no-this-in-fetch-data": "warn",
+    "nuxt/no-this-in-fetch-data": "warn",
+    "no-invalid-regexp": "warn",
+    "arca/melted-constructs": "warn",
+    "no-restricted-properties": ["warn", {
+      "object": "Intl",
+      "property": "Locale",
+      "message": "'Intl.Locale' is not support by Node v10.15.1 but https://v8.dev/blog/v8-release-74"
+    }, {
+      "object": "Object",
+      "property": "fromEntries",
+      "message": "`Object.fromEntries, is not support by Node v10.15.1 but https://v8.dev/blog/v8-release-74"
+    }, {
+      "object": "Math",
+      "property": "seededRandoms",
+      "message": "`Math.seededRandoms()` (TC39 proposal: Stage 1) and is not supported by Node v10.15.1"
+    }, {
+      "object": "require",
+      "message": "Please call require() directly."
+    }, {
+      "object": "window",
+      "property": "close",
+      "message": "`Avoid window.close()` see rules/no-nan.js"
+    }, {
+      "object": "clientInformation",
+      "message": "prefer 'navigator' object"
+    }],
+    "no-restricted-syntax": [
+      "warn",
+      {
+          "selector": "CallExpression[callee.name='setTimeout'][arguments.length!=2]",
+          "message": "setTimeout must always be invoked with two arguments."
+      },
+      {
+          "selector": "CallExpression[callee.name='clearTimeout'][arguments.length!=1]",
+          "message": "clearTimeout must always be invoked with one argument."
+      },
+      {
+          "selector": "CallExpression[callee.object.name='window'][callee.property.name='clearTimeout'][arguments.length!=1]",
+          "message": "window.clearTimeout must always be invoked with one argument."
+      },
+      {
+          "selector": "CallExpression[callee.object.name='Object'][callee.property.name='freeze'][arguments.length!=1]",
+          "message": "Object.freeze must always be called with one argument."
+      },
+      {
+          "selector": "CallExpression[callee.object.name='Math'][callee.property.name='degrees']",
+          "message": "Math.degrees is in `Math Extensions`, a TC39 proposal on Stage 1"
+      },
+      {
+          "selector": "BinaryExpression[operator=instanceof][right.name=Array]",
+          "message": "`instanceof Array` is disallowed. Prefer `Array.isArray()`."
+      },
+      {
+        "selector": "[operator=instanceof]",
+        "message": "Using the operator `instanceof` is not allowed, see https://github.com/eslint/eslint/issues/11132"
+      },
+      {
+        "selector": "CallExpression[callee.name.length=1]",
+        "message": "avoid call a short function name"
+      },
+      {
+        "selector": "NewExpression[callee.name='RegExp'][arguments.length > 2]",
+        "message": "Using 'RegExp' is not allowed with > two args"
+      },
+      {
+        "selector": "Literal[regex]",
+        "message": "avoid regular expression literal, see https://github.com/eslint/eslint/issues/11538"
+      },
+      {
+        "selector": "CatchClause[param=null]",
+        "message": "Proposal: no-optional-catch-binding rule, see https://github.com/eslint/eslint/issues/10264"
+      },
+      {
+        "selector": "CallExpression > MemberExpression > ThisExpression[parent.property.name='$']",
+        "message": "Avoid Jquery (this.$)"
+      },
+      {
+        "selector": "MemberExpression[object.name='$'][property.name='each']",
+        "message": "Avoid Jquery ($.each)"
+      },
+      {
+        "selector": "MemberExpression[object.name='$']",
+        "message": "Avoid Jquery ($)"
+      },
+      {
+        "selector": "CallExpression[callee.name='Number'][arguments.0.value.length>16]",
+        "message": "todo: repondre a https://github.com/eslint/eslint/issues/11279"
+      },
+      {
+        "selector": "CallExpression[callee.name='Number'][arguments.0.value>1234567890123456]",
+        "message": "todo: a finir, prefer BigInt (available on Node only) https://github.com/eslint/eslint/issues/11279"
+      },
+      {
+        "selector": "Literal[value>1234567890123456]",
+        "message": "todo: a finir aussi https://github.com/eslint/eslint/issues/11279"
+      }
+    ]
+  },
+  "plugins": [
+    "markdown",
+    "emmanuel",
+    "arca",
+    "no-hyogo-police",
+    "nuxt",
+    "@manu1400/eslint-plugin-jsonschema",
+    "eslint-plugin-jsonschema",
+    "json",
+    "arithmetic",
+    "eslint-plugin"
+  ],
+  "settings": {
+    "jsonschema": {
+        "schemaDirectory": [ "./schema", "schema" ]
+    }
+  },
+  "extends": [
+      "plugin:eslint-plugin/recommended"
+  ]
+}

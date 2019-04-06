@@ -11,15 +11,29 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha tests --recursive",
-    "lint": "eslint ./tests/ ./lib/ && eslint --ext md ."
+    "test:config": "eslint essai.js",
+    "lint": "eslint ./tests/ ./lib/ && eslint --ext md .",
+    "fix": "eslint --fix-dry-run && eslint --fix",
+    "docs": "./node_modules/eslint-docs/dist/cli.js check",
+    "perf": "TIMING=1 eslint test/**",
+    "////": "dont work:",
+    "perf:export": "eslint tests --rule \"timeout: 2\" --quiet -o=newfile.md > ruletable.md"
   },
   "dependencies": {
-    "requireindex": "~1.1.0"
+    "reflect-type-3": "^1.0.0",
+    "requireindex": "~1.1.0",
+    "sleep": "^6.0.0"
   },
   "devDependencies": {
+    "@manu1400/eslint-plugin-jsonschema": "^0.3.2",
     "babel-eslint": "^10.0.1",
     "eslint": "^3.9.1",
+    "eslint-docs": "^0.4.0",
+    "eslint-plugin-arca": "^0.7.1",
+    "eslint-plugin-eslint-plugin": "^2.0.1",
     "eslint-plugin-markdown": "^1.0.0-beta.6",
+    "eslint-plugin-no-hyogo-police": "^1.0.0",
+    "eslint-plugin-nuxt": "^0.4.3",
     "mocha": "^3.1.2"
   },
   "engines": {

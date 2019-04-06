@@ -1,0 +1,3 @@
+NaN = "jj"
+
+undefined = "jj"

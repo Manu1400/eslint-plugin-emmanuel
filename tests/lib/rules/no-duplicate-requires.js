@@ -45,6 +45,9 @@ ruleTester.run('no-duplicate-requires', rule, {
     },
     {
       code: "var async = require('async'), debug = require('diagnostics')('my-module')"
+    },
+    {
+      code: "require('module/sub-module'); require('module/other-sub-module');"
     }
   ],
 
@@ -109,6 +112,12 @@ ruleTester.run('no-duplicate-requires', rule, {
           message: "Fill me in.",
       }]
     },
+    {
+      code: "var m = require('module'); var sub = require('module/submodule');",
+      errors: [{
+          message: "Fill me in.",
+      }]
+    }
     /*
     {
       code: "var a = require('module'), b = require('module')",
