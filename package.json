@@ -27,14 +27,14 @@
   "devDependencies": {
     "@manu1400/eslint-plugin-jsonschema": "^0.3.2",
     "babel-eslint": "^10.0.1",
-    "eslint": "^3.9.1",
+    "eslint": "^5.16.0",
     "eslint-docs": "^0.4.0",
-    "eslint-plugin-arca": "^0.7.1",
+    "eslint-plugin-arca": "^0.8.1",
     "eslint-plugin-eslint-plugin": "^2.0.1",
-    "eslint-plugin-markdown": "^1.0.0-beta.6",
+    "eslint-plugin-markdown": "^1.0.0",
     "eslint-plugin-no-hyogo-police": "^1.0.0",
     "eslint-plugin-nuxt": "^0.4.3",
-    "mocha": "^3.1.2"
+    "mocha": "^6.0.2"
   },
   "engines": {
     "node": ">=0.10.0"
