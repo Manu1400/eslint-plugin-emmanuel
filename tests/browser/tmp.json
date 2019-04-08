@@ -1,0 +1,20 @@
+{
+  "type": "BlockStatement",
+  "body": [
+    {
+      "type": "LabeledStatement",
+      "body": {
+        "type": "ExpressionStatement",
+        "expression": {
+          "type": "Literal",
+          "value": "http://dev.example.com/",
+          "raw": "'http://dev.example.com/'"
+        }
+      },
+      "label": {
+        "type": "Identifier",
+        "name": "API_URL"
+      }
+    }
+  ]
+}

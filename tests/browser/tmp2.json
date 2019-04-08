@@ -1,0 +1,18 @@
+{
+  "type": "VariableDeclaration",
+  "declarations": [
+    {
+      "type": "VariableDeclarator",
+      "id": {
+        "type": "Identifier",
+        "name": "API_URL"
+      },
+      "init": {
+        "type": "Literal",
+        "value": "http://dev.example.com/",
+        "raw": "'http://dev.example.com/'"
+      }
+    }
+  ],
+  "kind": "const"
+}

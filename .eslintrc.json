@@ -29,6 +29,7 @@
     "emmanuel/no-invalid-xpath": "warn",
     "emmanuel/math-shortcut": "warn",
     "emmanuel/no-useless-concat": "warn",
+    "emmanuel/url-needed": "warn",
     "no-useless-concat": "off",
     "arithmetic/calc": "warn",
     "no-undef": "warn",
@@ -37,6 +38,36 @@
     "nuxt/no-this-in-fetch-data": "warn",
     "no-invalid-regexp": "warn",
     "arca/melted-constructs": "warn",
+    "no-restricted-modules": ["warn", {
+      "paths":[{
+        "name": "eslint-docs",
+        "message": "eslint-docs is not a require module. Please, use only as command"
+      }, {
+        "name": "require-from-string",
+        "message": "prefer require file. file: (file protocol) is supported by package.json since version 2.0.0 of npm"
+      }, {
+        "name": "import-fresh",
+        "message": "avoid bypass the cache"
+      }]
+    }],
+    "no-restricted-imports": ["warn", {
+      "paths": [{
+        "name": "moment",
+        "message": "Use date-fns or Luxon instead!"
+      }, {
+        "name": "underscore",
+        "message": "Use lodash-es instead!"
+      }, {
+        "name": "lodash",
+        "message": "Use lodash-es instead!"
+      }, {
+        "name": "q",
+        "message": "Use bluebird instead!"
+      }, {
+        "name": "minimatch",
+        "message": "Use micromatch instead!"
+      }]
+    }],
     "no-restricted-properties": ["warn", {
       "object": "Intl",
       "property": "Locale",
@@ -125,6 +156,10 @@
       {
         "selector": "Literal[value>1234567890123456]",
         "message": "todo: a finir aussi https://github.com/eslint/eslint/issues/11279"
+      },
+      {
+        "selector": "VariableDeclaration > VariableDeclarator[init.callee.name=\"importLazy\"][id.properties.0.kind=\"init\"]",
+        "message": "don't destructuring for having lazy"
       }
     ]
   },

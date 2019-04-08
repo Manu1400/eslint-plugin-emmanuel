@@ -66,9 +66,10 @@ If you want to use the <a href="http://requirejs.org/docs/api.html#cjsmodule">Si
 | [`emmanuel/no-number-useless`](./docs/rules/no-number-useless.md) | useless Number object constructor |  | :wrench: |
 | [`emmanuel/no-redefine-require`](./docs/rules/no-redefine-require.md) | Detect if require() is redefine | :heavy_check_mark: |  |
 | [`emmanuel/no-special-number`](./docs/rules/no-special-number.md) | prefer to use a standart Math constant |  | :wrench: |
-| [`emmanuel/no-useless-concat`](./docs/rules/no-useless-concat.md) | disallow unnecessary concatenation of literals or template literals |  | :wrench: |
+| [`emmanuel/no-useless-concat`](./docs/rules/no-useless-concat.md) | disallow unnecessary concatenation of literals or template literals | :heavy_check_mark: | :wrench: |
 | [`emmanuel/no-very-large-array`](./docs/rules/no-very-large-array.md) | no very large array |  | :wrench: |
 | [`emmanuel/securecontext`](./docs/rules/securecontext.md) | check isSecureContext |  |  |
 | [`emmanuel/simplify-regex`](./docs/rules/simplify-regex.md) | simplify regex |  | :wrench: |
+| [`emmanuel/url-needed`](./docs/rules/url-needed.md) | is URL |  | :wrench: |
 
 <!-- end rule list -->

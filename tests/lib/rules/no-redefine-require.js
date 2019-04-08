@@ -31,7 +31,13 @@ ruleTester.run("no-redefine-require", rule, {
 
     invalid: [
         {
-            code: "var fs = require(\"fs\");",
+            code: "var fs = require(\"\");",
+            errors: [{
+                message: "Fill me in.",
+            }]
+        },
+        {
+            code: "var fs = require();",
             errors: [{
                 message: "Fill me in.",
             }]

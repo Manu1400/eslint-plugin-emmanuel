@@ -16,8 +16,10 @@ ruleTester.run('reject', rule, {
   invalid: [
     {
       code: `var simple = /[abc]/;`,
-      errors: 0,
-      output: 'const simple = /[a-c]/ ;',
+      errors: [{
+        message: 'message',
+      }],
+      output: 'var simple = /[a-c]/ ;',
     },
     {
       code: `var simple = /[abc]{1,2}/;`,
