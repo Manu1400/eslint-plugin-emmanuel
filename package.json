@@ -1,13 +1,14 @@
 {
   "name": "eslint-plugin-emmanuel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "My ESLint plugin",
+  "repository": "https://github.com/Manu1400/eslint-plugin-emmanuel",
   "keywords": [
     "eslint",
     "eslintplugin",
     "eslint-plugin"
   ],
-  "author": "Emmanuel",
+  "author": "Emmanuel Haguet <emmanuel.haguet@laposte.net>",
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/lib --recursive",
