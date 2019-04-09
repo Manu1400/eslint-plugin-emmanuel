@@ -23,26 +23,31 @@
   },
   "dependencies": {
     "execa": "^1.0.0",
-    "import-lazy": "^3.1.0",
     "import-modules": "^1.1.0",
     "is-url": "^1.2.4",
     "listr": "^0.14.3",
     "path": "^0.12.7",
     "reflect-type-3": "^1.0.0",
     "requireindex": "~1.1.0",
-    "tempy": "^0.2.1"
+    "tempy": "^0.2.1",
+    "xpath.js": "^1.1.0"
   },
   "devDependencies": {
+    "@getify/eslint-plugin-proper-ternary": "^3.0.1",
     "@manu1400/eslint-plugin-jsonschema": "^0.3.2",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
     "eslint-docs": "^0.4.0",
     "eslint-plugin-arca": "^0.8.1",
     "eslint-plugin-eslint-plugin": "^2.0.1",
     "eslint-plugin-markdown": "^1.0.0",
     "eslint-plugin-no-hyogo-police": "^1.0.0",
     "eslint-plugin-nuxt": "^0.4.3",
+    "eslint-plugin-self": "^1.2.0",
+    "import-lazy": "^3.1.0",
     "mocha": "^6.0.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=5.0.0"
   },
   "engines": {
     "node": ">=10.0.0"
