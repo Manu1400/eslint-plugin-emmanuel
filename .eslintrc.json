@@ -146,6 +146,10 @@
         "message": "Avoid Jquery ($)"
       },
       {
+        "selector": "CallExpression[callee.name='$x']",
+        "message": "$x function is only available on browser console"
+      },
+      {
         "selector": "CallExpression[callee.name='Number'][arguments.0.value.length>16]",
         "message": "todo: repondre a https://github.com/eslint/eslint/issues/11279"
       },
