@@ -7,29 +7,10 @@
     "es6": true,
     "node": true
   },
-  "globals": {
-    "BigInt": "function",
-    "BigInt64Array": "function",
-    "BigUint64Array": "function",
-    "CivilDate": "function",
-    "CivilDateTime": "function",
-    "Instant": "function",
-    "ZonedInstant": "function"
-  },
   "rules": {
     "arrow-body-style": "off",
     "no-console": "off",
     "no-continue": "off",
-    "emmanuel/no-very-large-array": ["off", {"maxValue": 10}],
-    "emmanuel/no-number-useless": "warn",
-    "emmanuel/no-divide-by-zero": "warn",
-    "emmanuel/no-special-number": "warn",
-    "emmanuel/no-nan": "warn",
-    "emmanuel/securecontext": "warn",
-    "emmanuel/no-invalid-xpath": "warn",
-    "emmanuel/math-shortcut": "warn",
-    "emmanuel/no-useless-concat": "warn",
-    "emmanuel/url-needed": "warn",
     "no-useless-concat": "off",
     "arithmetic/calc": "warn",
     "no-undef": "warn",
@@ -81,6 +62,10 @@
       "property": "seededRandoms",
       "message": "`Math.seededRandoms()` (TC39 proposal: Stage 1) and is not supported by Node v10.15.1"
     }, {
+      "object": "Math",
+      "property": "random",
+      "message": "avoid `Math.random()` for a having determinist code, and read https://web.archive.org/web/20180816031017/http://devoluk.com:80/google-chrome-math-random-issue.html"
+    }, {
       "object": "require",
       "message": "Please call require() directly."
     }, {
@@ -90,6 +75,18 @@
     }, {
       "object": "clientInformation",
       "message": "prefer 'navigator' object"
+    }, {
+      "property": "getYear",
+      "message": "Deprecated, use getFullYear() method"
+    }, {
+      "property": "setYear",
+      "message": "Deprecated, use setFullYear() method"
+    }, {
+      "property": "lastModifiedDate",
+      "message": "File.lastModifiedDate is deprecated"
+    }, {
+      "property": "expandEntityReferences",
+      "message": "NodeIterator.expandEntityReferences is deprecated"
     }],
     "no-restricted-syntax": [
       "warn",
@@ -160,12 +157,19 @@
       {
         "selector": "VariableDeclaration > VariableDeclarator[init.callee.name=\"importLazy\"][id.properties.0.kind=\"init\"]",
         "message": "don't destructuring for having lazy"
+      },
+      {
+        "selector": "ConditionalExpression",
+        "message": "condition"
+      },
+      {
+        "selector": "WithStatement",
+        "message": "`with` statement is not recommended, as it may be the source of confusing bugs and compatibility issues, and is forbidden in ECMAScript 5 strict mode"
       }
     ]
   },
   "plugins": [
     "markdown",
-    "emmanuel",
     "arca",
     "nuxt",
     "json",
@@ -173,7 +177,6 @@
     "eslint-plugin"
   ],
   "extends": [
-      "plugin:eslint-plugin/recommended",
-      "plugin:emmanuel/recommended"
+      "plugin:eslint-plugin/recommended"
   ]
 }

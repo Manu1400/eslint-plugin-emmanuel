@@ -2,5 +2,20 @@
   "env": {
       "es6": true,
       "browser": true
-  }
+  },
+  "rules": {
+    "self/no-very-large-array": ["off", {"maxValue": 10}],
+    "self/no-number-useless": "warn",
+    "self/no-divide-by-zero": "warn",
+    "self/no-special-number": "warn",
+    "self/no-nan": "warn",
+    "self/securecontext": "warn",
+    "self/no-invalid-xpath": "warn",
+    "self/math-shortcut": "warn",
+    "self/no-useless-concat": "warn",
+    "self/url-needed": "warn"
+  },
+  "plugins": [
+    "self"
+  ]
 }

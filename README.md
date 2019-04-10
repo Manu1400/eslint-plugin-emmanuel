@@ -1,4 +1,5 @@
-# eslint-plugin-emmanuel
+# eslint-plugin-emmanuel [![Build Status](https://travis-ci.org/manu1400/eslint-plugin-emmanuel.svg?branch=master)](https://travis-ci.org/manu1400/eslint-plugin-emmanuel)
+
 
 My ESLint plugin
 
