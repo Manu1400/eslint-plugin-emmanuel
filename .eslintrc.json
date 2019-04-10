@@ -16,7 +16,6 @@
     "no-undef": "warn",
     "no-unmodified-loop-condition": "warn",
     "nuxt/no-this-in-fetch-data": "warn",
-    "nuxt/no-this-in-fetch-data": "warn",
     "no-invalid-regexp": "warn",
     "arca/melted-constructs": "warn",
     "no-restricted-modules": ["warn", {
