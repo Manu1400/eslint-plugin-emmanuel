@@ -17,6 +17,7 @@
     "fix": "eslint --fix-dry-run && eslint --fix",
     "docs": "./node_modules/eslint-docs/dist/cli.js check",
     "perf": "TIMING=1 eslint test/**",
+    "coverage": "nyc mocha tests/lib/rules/*.js lib/rules/*.js",
     "////": "dont work:",
     "perf:export": "eslint tests --rule \"timeout: 2\" --quiet -o=newfile.md > ruletable.md",
     "integration": "./tests/integration/test.js"
