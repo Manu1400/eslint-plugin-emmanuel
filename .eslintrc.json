@@ -166,10 +166,6 @@
         "message": "don't destructuring for having lazy"
       },
       {
-        "selector": "ConditionalExpression",
-        "message": "condition"
-      },
-      {
         "selector": "WithStatement",
         "message": "`with` statement is not recommended, as it may be the source of confusing bugs and compatibility issues, and is forbidden in ECMAScript 5 strict mode"
       }
