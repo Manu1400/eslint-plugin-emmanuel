@@ -72,6 +72,10 @@
       "property": "close",
       "message": "`Avoid window.close()` see rules/no-nan.js"
     }, {
+      "object": "window",
+      "property": "$x",
+      "message": "`Avoid window.$x()` works only on console"
+    }, {
       "object": "clientInformation",
       "message": "prefer 'navigator' object"
     }, {
