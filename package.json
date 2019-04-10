@@ -23,11 +23,13 @@
     "integration": "./tests/integration/test.js"
   },
   "dependencies": {
+    "@types/eslint": "^4.16.6",
+    "@types/listr": "^0.13.0",
     "execa": "^1.0.0",
     "import-modules": "^1.1.0",
     "is-url": "^1.2.4",
+    "js-xpath": "0.0.4",
     "listr": "^0.14.3",
-    "path": "^0.12.7",
     "reflect-type-3": "^1.0.0",
     "requireindex": "~1.1.0",
     "tempy": "^0.2.1",

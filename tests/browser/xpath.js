@@ -14,6 +14,7 @@ document.evaluate()
 evaluate("empty string", body) // valid
 
 document.evaluate("count(//p)")
+document.evaluate("count(//div)", document)
 
 // wrong example ?
 document.evaluate("count(//p)", document, null, XPathResult.ANY_TYPE, null)
