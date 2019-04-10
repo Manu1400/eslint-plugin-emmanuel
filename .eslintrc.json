@@ -8,6 +8,10 @@
     "node": true
   },
   "rules": {
+    "no-unused-vars": "off",
+    "no-redeclare": "off",
+    "no-irregular-whitespace": "off",
+    "no-mixed-spaces-and-tabs": "off",
     "arrow-body-style": "off",
     "no-console": "off",
     "no-continue": "off",
@@ -180,6 +184,7 @@
     "eslint-plugin"
   ],
   "extends": [
-      "plugin:eslint-plugin/recommended"
+      "plugin:eslint-plugin/recommended",
+      "eslint:recommended"
   ]
 }
