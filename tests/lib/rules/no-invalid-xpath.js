@@ -46,6 +46,10 @@ ruleTester.run("no-invalid-xpath", rule, {
       {
         code: "document.evaluate(\"//*[@lang = \'en-GB\']\", document)",
       },
+      // from https://www.w3schools.com/xml/xpath_syntax.asp
+      {
+        code: "document.evaluate(\"//title[@lang]\", document)",
+      },
       // XPath utility function, function isn't part of JavaScript itself, it is just a utility that's available in the console
       {
         code: "$x('//html', document)",
@@ -56,6 +60,14 @@ ruleTester.run("no-invalid-xpath", rule, {
     ],
 
     invalid: [
+        // https://www.w3schools.com/xml/xpath_syntax.asp
+        {
+          code: "document.evaluate(\"/html/body[0]\", document)",
+          errors: [{
+              message: "invalid index: 0",
+          }]
+        },
+        // @lang
         {
           code: "document.evaluate(\"//title[@lang = 'invalid-lang:']\", document)",
           errors: [{
