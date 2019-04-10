@@ -57,9 +57,35 @@ ruleTester.run("no-invalid-xpath", rule, {
       {
         code: "window.document.evaluate(\"//html\", document)",
       },
+      // Selects all elements in the document
+      {
+        code: "document.evaluate(\"//*\", document)",
+      },
+      {
+        code: "document.evaluate(\"//* | //book/price\", document)",
+      },
+      {
+        code: "document.evaluate(\"//book | //book/title\", document)",
+      },
+      {
+        code: "document.evaluate(\"/html/body[0] | /html[0]\", document)",
+      },
     ],
 
     invalid: [
+        // simplify
+        {
+          code: "document.evaluate(\"//book | //book\", document)",
+          errors: [{
+            message: "same expression",
+        }]
+        },
+        {
+          code: "document.evaluate(\"//book/title | //book/title\", document)",
+          errors: [{
+            message: "same expression",
+        }]
+        },
         // https://www.w3schools.com/xml/xpath_syntax.asp
         {
           code: "document.evaluate(\"/html/body[0]\", document)",
