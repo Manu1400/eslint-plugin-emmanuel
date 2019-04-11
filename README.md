@@ -60,6 +60,7 @@ If you want to use the <a href="http://requirejs.org/docs/api.html#cjsmodule">Si
 | ---- | ----------- | ------------------ | -------- |
 | [`emmanuel/math-shortcut`](./docs/rules/math-shortcut.md) | use Math constants |  | :wrench: |
 | [`emmanuel/no-divide-by-zero`](./docs/rules/no-divide-by-zero.md) | No divide by zero |  |  |
+| [`emmanuel/no-double-negative`](./docs/rules/no-double-negative.md) | No double negative |  | :wrench: |
 | [`emmanuel/no-duplicate-requires`](./docs/rules/no-duplicate-requires.md) | eslint-plugin-import offer a rule to report when a resolved path is imported more than once, but that doesn't work with require | :heavy_check_mark: |  |
 | [`emmanuel/no-empty-requires`](./docs/rules/no-empty-requires.md) | Find require() or require("") | :heavy_check_mark: |  |
 | [`emmanuel/no-invalid-xpath`](./docs/rules/no-invalid-xpath.md) | Check XPath expressions and avoid magic number |  | :wrench: |

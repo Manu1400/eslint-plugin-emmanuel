@@ -16,6 +16,7 @@ module.exports = {
   rules: {
     "emmanuel/math-shortcut": "warn", // safe
     "emmanuel/no-divide-by-zero": "warn", // safe
+    "emmanuel/no-double-negative": "warn",
     "emmanuel/no-duplicate-requires": "off", // .name, .callee
 //    "emmanuel/no-empty-requires": "warn",
     "emmanuel/no-invalid-xpath": "warn",
