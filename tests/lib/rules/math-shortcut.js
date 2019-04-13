@@ -43,12 +43,14 @@ ruleTester.run("math-shortcut", rule, {
             code: "Math.exp(1)",
             errors: [{
                 message: "Math.exp(1) -> Math.E",
+                type: "CallExpression"
             }]
         },
         {
             code: "math.eval('exp(1)')",
             errors: [{
                 message: "math.eval('exp(1)') -> math.eval('e') -> Math.E",
+                type: "CallExpression"
             }]
         },
     ]
