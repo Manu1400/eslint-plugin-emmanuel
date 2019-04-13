@@ -16,6 +16,7 @@ module.exports = {
 			plugins: [
 				'emmanuel'
 			],
+			// TODO: update this recommended rule list 
 			rules: {
         "emmanuel/no-useless-concat": "warn"
 			}

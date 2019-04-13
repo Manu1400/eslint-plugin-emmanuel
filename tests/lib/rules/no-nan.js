@@ -21,18 +21,21 @@ var ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2017 } });
 ruleTester.run("no-nan", rule, {
 
     valid: [
+    // but not a good idea to declare a variable who name is NaN
       {
-        code: "",
+        code: "var NaN = function (value) {}",
       },
     ],
 
     invalid: [
+        // already covered by eslint rule no-self-assign
         {
             code:  "NaN = function (value) {}",
             errors: [{
                 message: 'Don\'t try to assign value to NaN',
             }]
         },
+        // other cases
         {
             code:  "history.length = 0",
             errors: [{

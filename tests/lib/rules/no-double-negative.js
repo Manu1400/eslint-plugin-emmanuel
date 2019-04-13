@@ -4,14 +4,14 @@
  */
 "use strict";
 
+// arf, already exist : https://eslint.org/docs/rules/no-implicit-coercion
+
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-double-negative"),
-
-    RuleTester = require("eslint").RuleTester;
-
+const rule = require("../../../lib/rules/no-double-negative")
+const { RuleTester } = require("eslint")
 
 //------------------------------------------------------------------------------
 // Tests
