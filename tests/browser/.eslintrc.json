@@ -4,6 +4,7 @@
       "browser": true
   },
   "rules": {
+    "no-shadow": "error",
     "self/no-very-large-array": ["off", {"maxValue": 10}],
     "self/no-number-useless": "warn",
     "self/no-divide-by-zero": "warn",
