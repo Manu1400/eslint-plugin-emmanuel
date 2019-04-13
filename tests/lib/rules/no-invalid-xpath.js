@@ -70,6 +70,10 @@ ruleTester.run("no-invalid-xpath", rule, {
       {
         code: "document.evaluate(\"/html/body[0] | /html[0]\", document)",
       },
+      // var str = "//test";\ndocument.evaluate(str, body);
+      {
+        code: "var t = ''; \n document.evaluate(t, body);"
+      },
     ],
 
     invalid: [
