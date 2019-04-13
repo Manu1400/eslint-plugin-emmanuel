@@ -13,15 +13,48 @@
     "no-irregular-whitespace": "off",
     "no-mixed-spaces-and-tabs": "off",
     "arrow-body-style": "off",
-    "no-console": "off",
     "no-continue": "off",
     "no-useless-concat": "off",
+    "no-implicit-coercion": "warn",
     "arithmetic/calc": "warn",
     "no-undef": "warn",
+    "no-self-compare": "warn",
+    "no-div-regex": "error",
+    "no-magic-numbers": [
+      "warn",
+      {
+        "ignore": [-1, 0, 0.5, 1, 2],
+        "enforceConst": true
+      }
+    ],
+    "no-warning-comments": ["warn", { "terms": ["fuck", "fucking", "shit", "crappy", "stupid"], "location": "anywhere" }],
+    "id-blacklist": ["warn", "data", "err", "e", "cb", "callback", "fn", "foo", "$FlowFixMe", "SequenceExpression"],
+    "no-empty-function": "warn",
     "no-unmodified-loop-condition": "warn",
     "nuxt/no-this-in-fetch-data": "warn",
     "no-invalid-regexp": "warn",
     "arca/melted-constructs": "warn",
+    "no-useless-assign/no-useless-assign": "off",
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "count",
+          "countReset",
+          "clear",
+          "error",
+          "group",
+          "groupEnd",
+          "info",
+          "time",
+          "timeEnd",
+          "timeLog",
+          "timeStamp",
+          "trace",
+          "warn"
+          ]
+      }
+  ],
     "no-restricted-modules": ["warn", {
       "paths":[{
         "name": "eslint-docs",
@@ -32,6 +65,9 @@
       }, {
         "name": "import-fresh",
         "message": "avoid bypass the cache"
+      }, {
+        "name": "captains-log",
+        "message": "captains-log can add log (no-use-captains-log)"
       }]
     }],
     "no-restricted-imports": ["warn", {
@@ -60,6 +96,10 @@
       "object": "Object",
       "property": "fromEntries",
       "message": "`Object.fromEntries, is not support by Node v10.15.1 but https://v8.dev/blog/v8-release-74"
+    }, {
+      "object": "document",
+      "property": "all",
+      "message": "`document.all` is an object, but it is undefined, see https://github.com/denysdovhan/wtfjs#documentall-is-an-object-but-it-is-undefined"
     }, {
       "object": "Math",
       "property": "seededRandoms",
@@ -94,9 +134,47 @@
     }, {
       "property": "expandEntityReferences",
       "message": "NodeIterator.expandEntityReferences is deprecated"
+    }, {
+      "property": "toFixed",
+      "message": "Number.toFixed() can behave a bit strange in different browsers, see https://github.com/denysdovhan/wtfjs#numbertofixed-display-different-numbers"
+    }, {
+      "property": "sort",
+      "message": "Array.sort(), unexpected results, see https://whydoesitsuck.com/why-does-javascript-suck/#Unexpected-Behavior"
+    }, {
+      "object": "Math",
+      "property": "MIN_VALUE",
+      "message": "see https://whydoesitsuck.com/why-does-javascript-suck/#Numeric-Boundaries"
     }],
     "no-restricted-syntax": [
       "warn",
+      {
+        "selector": "SequenceExpression",
+        "message": "The comma operator is confusing and a common mistake"
+      },
+      {
+        "selector": "ClassDeclaration[superClass.raw=\"null\"]",
+        "message": "avoid extends null, see https://github.com/denysdovhan/wtfjs#function-is-not-a-function"
+      },
+      {
+        "selector": "FunctionDeclaration[id.name='fn']",
+        "message": "use a more specific function name"
+      },
+      {
+        "selector": "FunctionDeclaration[id.name='set']",
+        "message": "use a more specific function name"
+      },
+      {
+        "selector": "UnaryExpression[operator=\"!\"][argument.type=\"ArrayExpression\"]",
+        "message": "see https://github.com/denysdovhan/wtfjs#-is-equal-"
+      },
+      {
+        "selector": "UnaryExpression[operator=\"typeof\"][argument.name=\"NaN\"]",
+        "message": "see https://github.com/denysdovhan/wtfjs#nan-is-not-a-number"
+      },
+      {
+        "selector": "BinaryExpression[left.type=\"BinaryExpression\"][operator=\">\"][left.operator=\">\"]",
+        "message": "see https://github.com/denysdovhan/wtfjs#comparison-of-three-numbers"
+      },
       {
           "selector": "CallExpression[callee.name='setTimeout'][arguments.length!=2]",
           "message": "setTimeout must always be invoked with two arguments."
@@ -118,12 +196,24 @@
           "message": "Math.degrees is in `Math Extensions`, a TC39 proposal on Stage 1"
       },
       {
-          "selector": "BinaryExpression[operator=instanceof][right.name=Array]",
-          "message": "`instanceof Array` is disallowed. Prefer `Array.isArray()`."
+        "selector": "BinaryExpression[left.name=\"NaN\"]",
+        "message": "don't compare to NaN, see https://github.com/denysdovhan/wtfjs#nan-is-not-a-nan"
+      },
+      {
+        "selector": "BinaryExpression[right.name=\"NaN\"]",
+        "message": "don't compare to NaN, see https://github.com/denysdovhan/wtfjs#nan-is-not-a-nan"
+      },
+      {
+        "selector": "UpdateExpression[operator=\"--\"][argument.property.name=\"length\"]",
+        "message": "avoid `arr.length--`, see http://eamodeorubio.github.io/thejshorrorshow/#/44"
       },
       {
         "selector": "[operator=instanceof]",
         "message": "Using the operator `instanceof` is not allowed, see https://github.com/eslint/eslint/issues/11132"
+      },
+      {
+        "selector": "[operator=instanceof][right.type=\"Identifier\"][right.name=\"String\"]",
+        "message": "see https://github.com/denysdovhan/wtfjs#strings-arent-instances-of-string"
       },
       {
         "selector": "CallExpression[callee.name.length=1]",
@@ -132,6 +222,10 @@
       {
         "selector": "NewExpression[callee.name='RegExp'][arguments.length > 2]",
         "message": "Using 'RegExp' is not allowed with > two args"
+      },
+      {
+        "selector": "NewExpression[callee.name='Boolean']",
+        "message": "don't use new before Boolean constructor, see https://wtfjs.com/wtfs/2015-02-02-Boolean-constructor"
       },
       {
         "selector": "CatchClause[param=null]",
@@ -166,12 +260,20 @@
         "message": "todo: a finir aussi https://github.com/eslint/eslint/issues/11279"
       },
       {
+        "selector": "Literal[value=\"azerty\"]",
+        "message": "for tests, prefer real data"
+      },
+      {
         "selector": "VariableDeclaration > VariableDeclarator[init.callee.name=\"importLazy\"][id.properties.0.kind=\"init\"]",
         "message": "don't destructuring for having lazy"
       },
       {
         "selector": "WithStatement",
         "message": "`with` statement is not recommended, as it may be the source of confusing bugs and compatibility issues, and is forbidden in ECMAScript 5 strict mode"
+      },
+      {
+        "selector": "CallExpression[callee.name=\"Boolean\"][arguments.0.type=\"CallExpression\"][arguments.0.callee.name=\"Boolean\"]",
+        "message": "Double Boolean constructor all"
       }
     ]
   },
@@ -181,10 +283,12 @@
     "nuxt",
     "json",
     "arithmetic",
-    "eslint-plugin"
+    "eslint-plugin",
+    "no-useless-assign"
   ],
   "extends": [
       "plugin:eslint-plugin/recommended",
-      "eslint:recommended"
+      "eslint:recommended",
+      "plugin:you-dont-need-lodash-underscore/compatible"
   ]
 }
