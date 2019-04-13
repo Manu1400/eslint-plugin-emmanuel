@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "bcp47-validate": "^1.0.0",
-    "captains-log": "^2.0.1",
     "eslint-rule-documentation": "^1.0.22",
     "execa": "^1.0.0",
     "import-modules": "^1.1.0",

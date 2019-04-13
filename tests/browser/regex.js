@@ -15,7 +15,7 @@ arr[3]
 debugger;
 eval("debugger;");
 
-const log = require('captains-log')();
+//const log = require('captains-log')();
 
 // avoid this variable, an avoid variable with $
 $FlowFixMe = 1
