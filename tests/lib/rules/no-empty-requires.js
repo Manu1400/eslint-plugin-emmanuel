@@ -48,19 +48,19 @@ ruleTester.run("no-empty-requires", rule, {
         {
             code: "require(\"\");",
             errors: [{
-                message: "Fill me in.",
+                message: "empty require",
             }]
         },
         {
             code: "require();",
             errors: [{
-                message: "Fill me in.",
+                message: "empty require",
             }]
         },
         {
             code: "var a = require();",
             errors: [{
-                message: "Fill me in.",
+                message: "empty require",
             }]
         }
     ]
