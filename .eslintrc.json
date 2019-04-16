@@ -26,7 +26,7 @@
     "no-self-compare": "warn",
     "global-require": "warn",
     "no-div-regex": "error",
-    "node/shebang": "warn",
+    "node/shebang": "off",
     "id-length": ["warn", {"min": 1}],
     "no-global-assign": ["error", {"exceptions": ["__dirname", "__filename"]}],
     "no-magic-numbers": [
@@ -314,7 +314,7 @@
       },
       {
         "selector": "Literal[value>1234567890123456]",
-        "message": "todo: a finir aussi https://github.com/eslint/eslint/issues/11279"
+        "message": ">1234567890123456 https://github.com/eslint/eslint/issues/11279"
       },
       {
         "selector": "Literal[value=\"querty\"]",

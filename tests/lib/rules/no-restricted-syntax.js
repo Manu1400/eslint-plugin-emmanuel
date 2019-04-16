@@ -63,6 +63,10 @@ ruleTester.run("no-restricted-syntax", rule, {
         code: "const a = require; require;",
         options
       },
+      {
+        code: "1234567890.123458",
+        options
+      },
     ],
 
     invalid: [
@@ -171,10 +175,11 @@ ruleTester.run("no-restricted-syntax", rule, {
                 message: "don't compare to NaN, see https://github.com/denysdovhan/wtfjs#nan-is-not-a-nan",
             }]
         }, {
+            // eslint-disable-next-line no-restricted-syntax
             code: "1234567890123458",
             options,
             errors: [{
-                message: "todo: a finir aussi https://github.com/eslint/eslint/issues/11279",
+                message: ">1234567890123456 https://github.com/eslint/eslint/issues/11279",
             }]
         }
     ]
