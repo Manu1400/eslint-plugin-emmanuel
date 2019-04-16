@@ -13,7 +13,7 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "lib/rules"
+    "lib"
   ],
   "scripts": {
     "test": "mocha tests/config/ tests/lib --recursive",
