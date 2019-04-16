@@ -31,7 +31,6 @@
   "dependencies": {
     "bcp47-validate": "^1.0.0",
     "eslint-rule-documentation": "^1.0.22",
-    "execa": "^1.0.0",
     "import-modules": "^1.1.0",
     "is-url": "^1.2.4",
     "js-xpath": "0.0.4",
@@ -70,6 +69,7 @@
     "eslint-plugin-nuxt": "^0.4.3",
     "eslint-plugin-self": "^1.2.0",
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.4.0",
+    "execa": "^1.0.0",
     "import-lazy": "^3.1.0",
     "mocha": "^6.0.2"
   },
