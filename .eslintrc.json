@@ -27,6 +27,7 @@
     "global-require": "warn",
     "no-div-regex": "error",
     "node/shebang": "off",
+    "unicorn/regex-shorthand": "warn",
     "id-length": ["warn", {"min": 1}],
     "no-global-assign": ["error", {"exceptions": ["__dirname", "__filename"]}],
     "no-magic-numbers": [
@@ -335,10 +336,6 @@
       {
         "selector": "CallExpression[callee.name=\"Boolean\"][arguments.0.type=\"CallExpression\"][arguments.0.callee.name=\"Boolean\"]",
         "message": "Double Boolean constructor all"
-      },
-      {
-        "selector": "Identifier[name=\"arguments\"]",
-        "message": "avoid arguments[0], see https://stackoverflow.com/questions/3242485/why-isnt-a-functions-arguments-object-an-array-in-javascript/3242548#3242548"
       }
     ]
   },
@@ -351,7 +348,8 @@
     "eslint-plugin",
     "no-useless-assign",
     "jsdoc",
-    "node"
+    "node",
+    "unicorn"
   ],
   "extends": [
       "plugin:eslint-plugin/recommended",
