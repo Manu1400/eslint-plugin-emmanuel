@@ -11,6 +11,10 @@
   ],
   "author": "Emmanuel Haguet <emmanuel.haguet@laposte.net>",
   "main": "index.js",
+  "files": [
+		"index.js",
+		"lib/rules"
+	],
   "scripts": {
     "test": "mocha tests/config/ tests/lib --recursive",
     "test:config": "eslint tests/essai.js",
