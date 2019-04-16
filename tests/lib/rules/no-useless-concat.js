@@ -23,10 +23,10 @@ ruleTester.run("no-useless-concat", rule, {
       {
         code: "var a = \"-\" + \"+\"[0]",
       },
-      //WARNING: var a = `str` + `other`[0] -> var a = `str${c}`; in https://eslint.org/demo/
-      //{
-      //  code: "var a = `str` + `other`[0]",
-      //},
+      {
+        code: "var a = `str` + `other`[0]",
+        parserOptions: { ecmaVersion: 2019 },
+      },
       {
         code: "var a = (\"-\")",
       }
