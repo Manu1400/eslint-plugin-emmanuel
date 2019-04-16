@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-emmanuel",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "My ESLint plugin",
   "repository": "github:Manu1400/eslint-plugin-emmanuel",
   "homepage": "https://github.com/Manu1400/eslint-plugin-emmanuel#readme",
