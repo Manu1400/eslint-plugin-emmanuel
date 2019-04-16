@@ -1,7 +1,8 @@
 // from https://github.com/iamturns/configrrr documentation
 //module.exports = { API_URL: 'http://dev.example.com/' };
 
-module.exports = { API_URL: undefined };
+const port = 110;
+module.exports = { API_URL: undefined, port };
 
 const API_URL = 'http://dev.example.com/'
 var URL = ''
