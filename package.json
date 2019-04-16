@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-emmanuel",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "My ESLint plugin",
   "repository": "github:Manu1400/eslint-plugin-emmanuel",
   "homepage": "https://github.com/Manu1400/eslint-plugin-emmanuel#readme",
@@ -12,9 +12,9 @@
   "author": "Emmanuel Haguet <emmanuel.haguet@laposte.net>",
   "main": "index.js",
   "files": [
-		"index.js",
-		"lib/rules"
-	],
+    "index.js",
+    "lib/rules"
+  ],
   "scripts": {
     "test": "mocha tests/config/ tests/lib --recursive",
     "test:config": "eslint tests/essai.js",
