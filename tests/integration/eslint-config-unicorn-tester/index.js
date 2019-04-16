@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
 	parser: 'babel-eslint',
 	parserOptions: {
@@ -18,11 +19,11 @@ module.exports = {
     "emmanuel/no-divide-by-zero": "warn", // safe
     "emmanuel/no-double-negative": "warn",
     "emmanuel/no-duplicate-requires": "off", // .name, .callee
-//    "emmanuel/no-empty-requires": "warn",
+    "emmanuel/no-empty-requires": "warn",
     "emmanuel/no-invalid-xpath": "warn",
     "emmanuel/no-nan": "warn",
     "emmanuel/no-number-useless": "warn",
-//    "emmanuel/no-redefine-require": "warn",
+    "emmanuel/no-redefine-require": "warn",
     "emmanuel/no-special-number": "warn",
     "emmanuel/no-useless-concat": "warn",
     "emmanuel/no-very-large-array": ["off", {"maxValue": 10}],
