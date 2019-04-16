@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "bcp47-validate": "^1.0.0",
-    "eslint-rule-documentation": "^1.0.22",
+    "eslint-rule-documentation": "^1.0.23",
     "import-modules": "^1.1.0",
     "is-url": "^1.2.4",
     "js-xpath": "0.0.4",
@@ -43,7 +43,7 @@
     "lodash.isequal": "^4.5.0",
     "quote": "^0.4.0",
     "reflect-type-3": "^1.0.0",
-    "requireindex": "~1.1.0",
+    "requireindex": "~1.2.0",
     "xpath-analyzer": "^3.0.0",
     "xpath.js": "^1.1.0"
   },
@@ -75,8 +75,8 @@
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.4.0",
     "execa": "^1.0.0",
     "import-lazy": "^3.1.0",
-    "mocha": "^6.0.2",
-    "tempy": "^0.2.1"
+    "mocha": "^6.1.3",
+    "tempy": "^0.3.0"
   },
   "peerDependencies": {
     "eslint": ">=5.0.0"
