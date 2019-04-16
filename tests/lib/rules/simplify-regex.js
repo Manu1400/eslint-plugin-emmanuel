@@ -31,6 +31,7 @@ ruleTester.run('reject', rule, {
     {code: 'var simple = /[adlpkeaz]/;'},
     {code: 'var simple = /[0a-v]+/;'},
     {code: '/[0a-v]+/'},
+    {code: '/[abc]aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/'},
   ],
 
   invalid: [
