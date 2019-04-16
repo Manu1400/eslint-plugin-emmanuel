@@ -4,6 +4,23 @@ const RuleTester = require('eslint').RuleTester
 const ruleTester = new RuleTester()
 ruleTester.run('reject', rule, {
   valid: [
+    "/[0-9]/",
+    "/[0-9]+/",
+    "/[0-9]{0}/",
+    "/[0-9]{1}/",
+    "/[0-9][0-9][0-9]/",
+    "var simple = /[0-9]{10}[0-9]{10}/",
+    "var simple = /([0-9]{10})[0-9]{10}/",
+    "var simple = /([0-9]{10}[0-9]{10})/",
+    "/ab/ == /ab/",
+    "new RegExp(/ab/) == new RegExp(/ab/)",
+    "RegExp(/ab/) == RegExp(/ab/)",
+    //"RegExp(/ab/).",
+    "RegExp(/ab/).flags",
+    "RegExp(/ab/).flags == 0",
+    //"RegExp(/ab/).flags == ``",
+    "/[0-9]\\d\\d00000000/",
+    "/[0-9]\\d\\d00000000aaaaaa/",
     {code: 'var simple = /ab/;'},
     {code: 'var simple = /adjc/;'},
     {code: 'var simple = /[ad]/;'},
@@ -11,6 +28,9 @@ ruleTester.run('reject', rule, {
     {code: 'var simple = /[z{]/;'},
     {code: 'var simple = /[a][b]/;'},
     {code: 'var simple = /[a]+[b]/;'},
+    {code: 'var simple = /[adlpkeaz]/;'},
+    {code: 'var simple = /[0a-v]+/;'},
+    {code: '/[0a-v]+/'},
   ],
 
   invalid: [
@@ -48,6 +68,14 @@ ruleTester.run('reject', rule, {
       errors: [{
         message: 'simplify regex expression',
       }],
+      output: 'var simple = /[c-a]/ ;', // TODO: invalid regex
+    },
+    {
+      code: `var simple = /[cba]+/;`,
+      errors: [{
+        message: 'simplify regex expression',
+      }],
+      output: 'var simple = /[c-a]+/ ;',
     },
     {
       code: `var simple = /[a]/;`,
@@ -56,6 +84,14 @@ ruleTester.run('reject', rule, {
     {
       code: 'return /[abcde]/;',
       errors: 1,
+    },
+    {
+      code: '/[ttttt]/;',
+      errors: 0
+    },
+    {
+      code: '/ttttt/;',
+      errors: 0
     },
   ],
 })
