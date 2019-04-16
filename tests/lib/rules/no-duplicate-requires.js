@@ -3,24 +3,11 @@
  * @author Emmanuel
  */
 
-
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
 const rule = require('../../../lib/rules/no-duplicate-requires');
-
-
 const RuleTester = require('eslint').RuleTester;
-
-
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester();
 ruleTester.run('no-duplicate-requires', rule, {
-
   valid: [
     {
       code: "var a = require('module'); var b = require('other-module');",
@@ -55,74 +42,74 @@ ruleTester.run('no-duplicate-requires', rule, {
     {
       code: "var a = require('module'); var b = require('module');",
       errors: [{
-        message: 'Fill me in.',
+        message: 'duplicate require',
       }],
     },
     {
       code: "var a = require('module.js'); var b = require('module.js');",
       errors: [{
-        message: 'Fill me in.',
+        message: 'duplicate require',
       }],
     },
     {
       code: "var a = require('./module'); var b = require('./module.js');",
       errors: [{
-        message: 'Fill me in.',
+        message: 'duplicate require',
       }],
     },
     {
       code: "var a = require('./test'); var b = require('./test.json');",
       errors: [{
-        message: 'Fill me in.',
+        message: 'duplicate require',
       }],
     },
     {
       code: "var a = require('./file'); var b = require('./file');",
       errors: [{
-        message: 'Fill me in.',
+        message: 'duplicate require',
       }],
     },
     {
       code: "require('./file'); require('./file');",
       errors: [{
-        message: 'Fill me in.',
+        message: 'duplicate require',
       }],
     },
     {
       code: "require('/tmp/test.json'); require('/tmp/test');",
       errors: [{
-        message: 'Fill me in.',
+        message: 'duplicate require',
       }],
     },
     {
         code: "var bar = require('getName'); var foo = require(\"getName\")",
         errors: [{
-            message: "Fill me in.",
+            message: "duplicate require",
         }]
     },
     {
       code: "var a = require('.'); var b = require('.')",
       errors: [{
-          message: "Fill me in.",
+          message: "duplicate require",
       }]
     },
     {
       code: "var a = require('/tmp//test'); var b = require('/tmp/test')",
       errors: [{
-          message: "Fill me in.",
+          message: "duplicate require",
       }]
     },
     {
       code: "var m = require('module'); var sub = require('module/submodule');",
       errors: [{
-          message: "Fill me in.",
+          message: "duplicate require",
       }]
     }
     /*
     {
       code: "var a = require('module'), b = require('module')",
       errors: [{
-          message: "Fill me in.",
+          message: "duplicate require",
       }]
     }
     */
