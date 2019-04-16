@@ -39,7 +39,6 @@
     "quote": "^0.4.0",
     "reflect-type-3": "^1.0.0",
     "requireindex": "~1.1.0",
-    "tempy": "^0.2.1",
     "xpath-analyzer": "^3.0.0",
     "xpath.js": "^1.1.0"
   },
@@ -71,7 +70,8 @@
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.4.0",
     "execa": "^1.0.0",
     "import-lazy": "^3.1.0",
-    "mocha": "^6.0.2"
+    "mocha": "^6.0.2",
+    "tempy": "^0.2.1"
   },
   "peerDependencies": {
     "eslint": ">=5.0.0"
