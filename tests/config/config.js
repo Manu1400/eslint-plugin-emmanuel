@@ -67,9 +67,9 @@ const checkRule = function (ruleName) {
           {
             code: "var myvariable",
           },
-          {
-            code: "// $set",
-          },
+          //{
+          //  code: "// $set",
+          //},
           {
             code: "// eslint-disable-next-line",
           }, 
