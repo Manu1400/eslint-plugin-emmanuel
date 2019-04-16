@@ -15,10 +15,10 @@ module.exports = {
 	],
 	extends: 'plugin:emmanuel/recommended',
   rules: {
-    "emmanuel/math-shortcut": "warn", // safe
-    "emmanuel/no-divide-by-zero": "warn", // safe
+    "emmanuel/math-shortcut": "warn",
+    "emmanuel/no-divide-by-zero": "warn",
     "emmanuel/no-double-negative": "warn",
-    "emmanuel/no-duplicate-requires": "off", // .name, .callee
+    "emmanuel/no-duplicate-requires": "warn",
     "emmanuel/no-empty-requires": "warn",
     "emmanuel/no-invalid-xpath": "warn",
     "emmanuel/no-nan": "warn",
@@ -26,8 +26,8 @@ module.exports = {
     "emmanuel/no-redefine-require": "warn",
     "emmanuel/no-special-number": "warn",
     "emmanuel/no-useless-concat": "warn",
-    "emmanuel/no-very-large-array": ["off", {"maxValue": 10}],
+    "emmanuel/no-very-large-array": ["warn", {"maxValue": 10}],
     "emmanuel/securecontext": "warn",
-    "emmanuel/simplify-regex": "off" // Unexpected ^ at offset 0 in pattern /^bg[^B]/ – assertions are not supported
+    "emmanuel/simplify-regex": "warn"
   }
 };

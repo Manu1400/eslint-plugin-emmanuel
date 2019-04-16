@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 
 const path = require('path');
@@ -8,14 +9,14 @@ const del = require('del');
 const chalk = require('chalk');
 
 const packages = new Map([
-//	['ava', 'https://github.com/avajs/ava'], // fail: Cannot read property 'callee' of null
-	['chalk', 'https://github.com/chalk/chalk'], // fail: regex but rule is off
+	['ava', 'https://github.com/avajs/ava'],
+	['chalk', 'https://github.com/chalk/chalk'],
 	['wrap-ansi', 'https://github.com/chalk/wrap-ansi'],
 	['np', 'https://github.com/sindresorhus/np'],
 	['ora', 'https://github.com/sindresorhus/ora'],
 	['p-map', 'https://github.com/sindresorhus/p-map'],
 	['os-locale', 'https://github.com/sindresorhus/os-locale'],
-//	['execa', 'https://github.com/sindresorhus/execa'], // fail: Cannot read property 'callee' of null
+	['execa', 'https://github.com/sindresorhus/execa'],
 	['pify', 'https://github.com/sindresorhus/pify'],
 	['boxen', 'https://github.com/sindresorhus/boxen'],
 	['make-dir', 'https://github.com/sindresorhus/make-dir'],
@@ -30,15 +31,15 @@ const packages = new Map([
 	['download', 'https://github.com/kevva/download'],
 	['brightness', 'https://github.com/kevva/brightness'],
 	['decompress', 'https://github.com/kevva/decompress'],
-//	['npm-conf', 'https://github.com/kevva/npm-conf'], // Cannot read property 'callee' of null
+	['npm-conf', 'https://github.com/kevva/npm-conf'],
 	['imagemin', 'https://github.com/imagemin/imagemin'],
 	['color-convert', 'https://github.com/qix-/color-convert'],
-//	['eslint-plugin-unicorn', 'https://github.com/sindresorhus/eslint-plugin-unicorn'], // Cannot read property 'callee' of null
+	['eslint-plugin-unicorn', 'https://github.com/sindresorhus/eslint-plugin-unicorn'],
 	['ky', 'https://github.com/sindresorhus/ky'],
 	['query-string', 'https://github.com/sindresorhus/query-string'],
 	['meow', 'https://github.com/sindresorhus/meow'],
 	['globby', 'https://github.com/sindresorhus/globby'],
-	['emittery', 'https://github.com/sindresorhus/emittery'], // Cannot read property 'callee' of null
+	['emittery', 'https://github.com/sindresorhus/emittery'],
 	['p-queue', 'https://github.com/sindresorhus/p-queue'],
 	['pretty-bytes', 'https://github.com/sindresorhus/pretty-bytes'],
 	['normalize-url', 'https://github.com/sindresorhus/normalize-url']
