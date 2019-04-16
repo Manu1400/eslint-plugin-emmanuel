@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "parserOptions": {
-      "ecmaVersion": 2017
+      "ecmaVersion": 2018
   },
   "env": {
     "es6": true,
@@ -12,14 +12,23 @@
     "no-redeclare": "off",
     "no-irregular-whitespace": "off",
     "no-mixed-spaces-and-tabs": "off",
+    "no-param-reassign": "error",
+    "no-alert": "error",
     "arrow-body-style": "off",
     "no-continue": "off",
     "no-useless-concat": "off",
+    "one-var": "off",
+    "max-statements": ["warn", 15],
     "no-implicit-coercion": "warn",
     "arithmetic/calc": "warn",
     "no-undef": "warn",
+    "no-use-before-define": "warn",
     "no-self-compare": "warn",
+    "global-require": "warn",
     "no-div-regex": "error",
+    "node/shebang": "warn",
+    "id-length": ["warn", {"min": 1}],
+    "no-global-assign": ["error", {"exceptions": ["__dirname", "__filename"]}],
     "no-magic-numbers": [
       "warn",
       {
@@ -27,14 +36,20 @@
         "enforceConst": true
       }
     ],
-    "no-warning-comments": ["warn", { "terms": ["fuck", "fucking", "shit", "crappy", "stupid"], "location": "anywhere" }],
-    "id-blacklist": ["warn", "data", "err", "e", "cb", "callback", "fn", "foo", "$FlowFixMe", "SequenceExpression"],
+    "no-warning-comments": ["warn", { "terms": ["flemme", "hello world", "fuck", "fucking", "shit", "crappy", "stupid", ":poop:", "WTF", "////", "copy pasted"], "location": "anywhere" }],
+    "id-blacklist": [
+      "warn", "data", "err", "e", "cb", "callback", "fn", "foo", "$FlowFixMe", "SequenceExpression", "rien", "clean", "myvar"
+    ],
     "no-empty-function": "warn",
     "no-unmodified-loop-condition": "warn",
     "nuxt/no-this-in-fetch-data": "warn",
     "no-invalid-regexp": "warn",
     "arca/melted-constructs": "warn",
     "no-useless-assign/no-useless-assign": "off",
+    "require-jsdoc": "off",
+    "jsdoc/valid-types": 1,
+    "jsdoc/check-types": 1,
+    "jsdoc/require-param": "off",
     "no-console": [
       "error",
       {
@@ -68,12 +83,31 @@
       }, {
         "name": "captains-log",
         "message": "captains-log can add log (no-use-captains-log)"
+      }, {
+        "name": "lodash.isequal",
+        "message": "lodash-modularized: `lodash.isequal` is very old, ie: lodash.isequal v4.5.0,lodash v4.17.11 (at 13 april 2019)"
+      }, {
+        "name": "ts-lint",
+        "message": "this npm module was published 2 years ago, look like bad. Prefer the npm module tslint"
+      }, {
+        "name": "@stdlib/stdlib",
+        "message": "stability-experimental as v@0.0.60, at 15 april 2019, and huge librairy"
+      }, {
+        "name": "@stdlib/math/base/special/log10",
+        "message": "prefer Math.log10 function"
       }]
     }],
     "no-restricted-imports": ["warn", {
+      "patterns": ["!lodash/*"],
       "paths": [{
         "name": "moment",
-        "message": "Use date-fns or Luxon instead!"
+        "message": "Use date-fns or Luxon instead! see https://moment.github.io/luxon/docs/manual/moment.html"
+      }, {
+        "name": "moment-timezone"
+      },{
+        "name": "frozen-moment"
+      },{
+        "name": "moment"
       }, {
         "name": "underscore",
         "message": "Use lodash-es instead!"
@@ -81,11 +115,26 @@
         "name": "lodash",
         "message": "Use lodash-es instead!"
       }, {
+        "name": "lodash-es"
+      }, {
         "name": "q",
         "message": "Use bluebird instead!"
       }, {
         "name": "minimatch",
         "message": "Use micromatch instead!"
+      }, {
+        "name": "three",
+        "message": "huge librairy"
+      }, {
+        "name": "@vue/test-utils",
+        "message": "Currently in beta"
+      }, {
+        "name": "jscs",
+        "message": "deprecated tool: JSCS has merged with ESLint!"
+      }, {
+        "name": "twine",
+        "importNames": ["Bindings", "tw"],
+        "message": "Prefer Twine over Bindings as the name for twine imports. see https://github.com/Shopify/eslint-plugin-shopify/blob/master/docs/rules/prefer-twine.md"
       }]
     }],
     "no-restricted-properties": ["warn", {
@@ -96,6 +145,14 @@
       "object": "Object",
       "property": "fromEntries",
       "message": "`Object.fromEntries, is not support by Node v10.15.1 but https://v8.dev/blog/v8-release-74"
+    }, {
+      "object": "querystring",
+      "property": "decode",
+      "message": "`querystring.decode()` function is an alias for `querystring.parse()`"
+    }, {
+      "object": "querystring",
+      "property": "encode",
+      "message": "`querystring.encode()` function is an alias for `querystring.stringify()`"
     }, {
       "object": "document",
       "property": "all",
@@ -260,6 +317,10 @@
         "message": "todo: a finir aussi https://github.com/eslint/eslint/issues/11279"
       },
       {
+        "selector": "Literal[value=\"querty\"]",
+        "message": "for tests, prefer real data"
+      },
+      {
         "selector": "Literal[value=\"azerty\"]",
         "message": "for tests, prefer real data"
       },
@@ -274,6 +335,10 @@
       {
         "selector": "CallExpression[callee.name=\"Boolean\"][arguments.0.type=\"CallExpression\"][arguments.0.callee.name=\"Boolean\"]",
         "message": "Double Boolean constructor all"
+      },
+      {
+        "selector": "Identifier[name=\"arguments\"]",
+        "message": "avoid arguments[0], see https://stackoverflow.com/questions/3242485/why-isnt-a-functions-arguments-object-an-array-in-javascript/3242548#3242548"
       }
     ]
   },
@@ -284,11 +349,14 @@
     "json",
     "arithmetic",
     "eslint-plugin",
-    "no-useless-assign"
+    "no-useless-assign",
+    "jsdoc",
+    "node"
   ],
   "extends": [
       "plugin:eslint-plugin/recommended",
       "eslint:recommended",
-      "plugin:you-dont-need-lodash-underscore/compatible"
+      "plugin:you-dont-need-lodash-underscore/compatible",
+      "plugin:node/recommended"
   ]
 }
