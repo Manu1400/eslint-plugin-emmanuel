@@ -49,18 +49,21 @@ ruleTester.run("no-empty-requires", rule, {
             code: "require(\"\");",
             errors: [{
                 message: "empty require",
+                type: "CallExpression"
             }]
         },
         {
             code: "require();",
             errors: [{
                 message: "empty require",
+                type: "CallExpression"
             }]
         },
         {
             code: "var a = require();",
             errors: [{
                 message: "empty require",
+                type: "CallExpression"
             }]
         }
     ]

@@ -17,35 +17,36 @@ ruleTester.run('reject', rule, {
     {
       code: `var simple = /[abc]/;`,
       errors: [{
-        message: 'message',
+        message: 'simplify regex expression',
       }],
       output: 'var simple = /[a-c]/ ;',
     },
     {
       code: `var simple = /[abc]{1,2}/;`,
       errors: [{
-        message: 'message',
+        message: 'simplify regex expression',
       }],
       output: 'var simple = /[a-c]{1,2}/ ;',
     },
     {
       code: `var simple = /[^abc]/;`,
       errors: [{
-        message: 'message',
+        message: 'simplify regex expression',
+        type: 'Literal',
       }],
       output: 'var simple = /[^a-c]/ ;',
     },
     {
       code: `var simple = /[^abc]+/;`,
       errors: [{
-        message: 'message',
+        message: 'simplify regex expression',
       }],
       output: 'var simple = /[^a-c]+/ ;',
     },
     {
       code: `var simple = /[cba]/;`,
       errors: [{
-        message: 'message',
+        message: 'simplify regex expression',
       }],
     },
     {

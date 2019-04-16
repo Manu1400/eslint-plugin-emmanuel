@@ -37,6 +37,7 @@ ruleTester.run("no-very-large-array", rule, {
             code:  "Array(10000000000)",
             errors: [{
                 message: "The value `10000000000` is too big in `Array()`.",
+                type: "CallExpression"
             }]
         },
     ]

@@ -82,6 +82,7 @@ ruleTester.run("no-invalid-xpath", rule, {
           code: "document.evaluate(\"//book | //book\", document)",
           errors: [{
             message: "same expression",
+            type: "CallExpression"
         }]
         },
         {

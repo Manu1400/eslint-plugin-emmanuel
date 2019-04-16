@@ -39,61 +39,71 @@ ruleTester.run("no-divide-by-zero", rule, {
         {
             code: "0 / 0",
             errors: [{
-                message: "Divide by zero",
+                message: "Divide by zero", 
+                //type: "BinaryExpression"
             }]
         },
         {
             code: "1 / 0",
             errors: [{
                 message: "Divide by zero",
+                //type: "BinaryExpression"
             }]
         },
         {
             code: "1 / 0.0",
             errors: [{
                 message: "Divide by zero",
+                //type: "BinaryExpression"
             }]
         },
         {
           code: "1 / ZERO",
           errors: [{
               message: "maybe a divide by -zero, please rename variable ZERO",
+              //type: "BinaryExpression"
           }]
         },
         {
           code: "1 / +0",
           errors: [{
               message: "Divide by +zero",
+              //type: "BinaryExpression"
           }]
         },
         {
           code: "1 / -0",
           errors: [{
               message: "Divide by -zero",
+              //type: "BinaryExpression"
           }]
         },
         {
           code: "1 / (a=0)",
           errors: [{
               message: "Look like divide by zero",
+              //type: "Identifier"
           }]
         },
         {
           code: "1 / (0+0)",
           errors: [{
               message: "look like to divide by result 0 (0+0)",
+              //type: "Identifier"
           }]
         },
         {
           code: "1 / (1-1)",
           errors: [{
               message: "look like to divide by result 0 (samevalue - samevalue)",
+              //type: "Identifier"
           }]
         },
         {
           code: "1 / (a-a)",
           errors: [{
               message: "useless code (variable-same_variable)",
+              //type: "Identifier"
           }]
         },
     ]

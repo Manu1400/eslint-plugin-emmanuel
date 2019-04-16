@@ -1,4 +1,5 @@
 const isUrl = require('is-url')
+const { categories } = require("eslint/conf/category-list")
 
 const checkUrl = function(str) {
     if (isUrl(str) == false) {
@@ -15,7 +16,6 @@ function checkMetadata(meta) {
 }
 
 function checkCategory(category = "") {
-    const { categories } = require("eslint/conf/category-list")
     const eslintCategories = categories.map(obj => obj.name)
     if (eslintCategories.includes(category) == false) {
         console.error("this category in not a eslint category: " + category)

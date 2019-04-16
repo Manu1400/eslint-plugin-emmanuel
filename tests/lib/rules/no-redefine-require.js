@@ -34,21 +34,21 @@ ruleTester.run("no-redefine-require", rule, {
             code: "var require = require(\"\");",
             errors: [{
                 message: "require redefined",
-                nodeType: 'VariableDeclarator',
+                type: 'VariableDeclarator',
             }]
         },
         {
             code: "var require = \"\"",
             errors: [{
                 message: "require redefined",
-                nodeType: 'VariableDeclarator',
+                type: 'VariableDeclarator',
             }]
         },
         {
           code: "var require;",
           errors: [{
               message: "require redefined",
-              nodeType: 'VariableDeclarator',
+              type: 'VariableDeclarator',
           }]
         },
         {
@@ -56,7 +56,7 @@ ruleTester.run("no-redefine-require", rule, {
           parserOptions: { ecmaVersion: 2019 },
           errors: [{
               message: "require redefined",
-              nodeType: 'VariableDeclarator',
+              type: 'VariableDeclarator',
           }]
         },
         /*
@@ -65,7 +65,7 @@ ruleTester.run("no-redefine-require", rule, {
           parserOptions: { ecmaVersion: 2019 },
           errors: [{
               message: "require redefined",
-              nodeType: 'VariableDeclarator',
+              type: 'VariableDeclarator',
           }]
         },
         {
@@ -73,7 +73,7 @@ ruleTester.run("no-redefine-require", rule, {
           parserOptions: { ecmaVersion: 2019 },
           errors: [{
               message: "require redefined",
-              nodeType: 'VariableDeclarator',
+              type: 'VariableDeclarator',
           }]
         },
         */

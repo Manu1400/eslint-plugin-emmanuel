@@ -17,7 +17,7 @@ var rule = require("eslint/lib/rules/no-restricted-syntax"),
 // Tests
 //------------------------------------------------------------------------------
 
-const rules = require("../../../.eslintrc.json").rules
+const {rules} = require("../../../.eslintrc.json")
 const options = rules["no-restricted-syntax"] // or [str, ...options]
 
 var ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2017 } });
@@ -57,6 +57,10 @@ ruleTester.run("no-restricted-syntax", rule, {
       // remplace by require('lodash.isequal')(a, b) [and run npm i lodash.isequal --save]
       {
         code: "_.isEqual(a, b)",
+        options
+      },
+      {
+        code: "const a = require; require;",
         options
       },
     ],
@@ -109,6 +113,7 @@ ruleTester.run("no-restricted-syntax", rule, {
             options,
             errors: [{
                 message: 'Using the operator `instanceof` is not allowed, see https://github.com/eslint/eslint/issues/11132',
+                type: "BinaryExpression"
             }]
         }, {
             code: "a instanceof Array",
@@ -135,6 +140,7 @@ ruleTester.run("no-restricted-syntax", rule, {
             options,
             errors: [{
                 message: "avoid `arr.length--`, see http://eamodeorubio.github.io/thejshorrorshow/#/44",
+                type: "UpdateExpression"
             }]
         }, {
             code: "$x('')",
@@ -147,12 +153,14 @@ ruleTester.run("no-restricted-syntax", rule, {
             options,
             errors: [{
                 message: 'use a more specific function name',
+                type: "FunctionDeclaration"
             }]
         }, {
             code: "[] == ![];",
             options,
             errors: [{
                 message: 'see https://github.com/denysdovhan/wtfjs#-is-equal-',
+                type: "UnaryExpression"
             }]
         }, {
             code: "NaN === NaN;",
@@ -168,6 +176,6 @@ ruleTester.run("no-restricted-syntax", rule, {
             errors: [{
                 message: "todo: a finir aussi https://github.com/eslint/eslint/issues/11279",
             }]
-        },
+        }
     ]
 });
