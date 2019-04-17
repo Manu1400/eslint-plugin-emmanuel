@@ -8,6 +8,7 @@
     "node": true
   },
   "rules": {
+    "no-cond-assign": "off",
     "no-unused-vars": "off",
     "no-redeclare": "off",
     "no-irregular-whitespace": "off",
@@ -37,7 +38,7 @@
         "enforceConst": true
       }
     ],
-    "no-warning-comments": ["warn", { "terms": ["flemme", "hello world", "fuck", "fucking", "shit", "crappy", "stupid", ":poop:", "WTF", "////", "copy pasted"], "location": "anywhere" }],
+    "no-warning-comments": ["warn", { "terms": ["flemme", "hello world", "fuck", "fucking", "shit", "crappy", "stupid", ":poop:", "WTF", "////", "copy pasted", "💣", "⚠️", "/!\\", "!!", "slow", "impacté", "heavy"], "location": "anywhere" }],
     "id-blacklist": [
       "warn", "data", "err", "e", "cb", "callback", "fn", "foo", "$FlowFixMe", "SequenceExpression", "rien", "clean", "myvar"
     ],
@@ -102,7 +103,10 @@
       "patterns": ["!lodash/*"],
       "paths": [{
         "name": "moment",
-        "message": "Use date-fns or Luxon instead! see https://moment.github.io/luxon/docs/manual/moment.html"
+        "message": "Use date-fns or Luxon instead! see https://moment.github.io/luxon/docs/manual/moment.html and https://inventi.studio/en/blog/why-you-shouldnt-use-moment-js for alternatives"
+      }, {
+        "name": "date-fns",
+        "message": "date-fns not support error throwing and don't have TZ support https://moment.github.io/luxon/docs/manual/moment.html and https://inventi.studio/en/blog/why-you-shouldnt-use-moment-js"
       }, {
         "name": "moment-timezone"
       },{
@@ -205,6 +209,18 @@
     }],
     "no-restricted-syntax": [
       "warn",
+      {
+        "selector": "CallExpression[callee.object.name='console'][callee.property.name='log'][arguments.0.name='arr']",
+        "message": "prefer `console.table(arr)` for debug an array"
+      },
+      {
+        "selector": "CallExpression[callee.object.name='console'][callee.property.name='log'][arguments.0.name=/.+s$/]",
+        "message": "prefer `console.table()` for debug an array"
+      },
+      {
+        "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+        "message": "could call `console.log(new Error().stack)` to debug or https://github.com/visionmedia/debug or https://github.com/luruke/magicshader for three.js"
+      },
       {
         "selector": "SequenceExpression",
         "message": "The comma operator is confusing and a common mistake"

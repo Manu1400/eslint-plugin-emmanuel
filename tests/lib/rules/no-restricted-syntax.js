@@ -67,9 +67,32 @@ ruleTester.run("no-restricted-syntax", rule, {
         code: "1234567890.123458",
         options
       },
+      {
+        code: "log(arr)",
+        options
+      },
+      {
+        code: "var s = []; console.log(s);",
+        options
+      },
     ],
 
     invalid: [
+        {
+            code: "var arr = []; console.log(arr);",
+            options,
+            errors: [{
+                message: 'prefer `console.table(arr)` for debug an array',
+            }]
+        },
+        // console log of an array: identifier with plurial
+        {
+            code: "var cars = []; console.log(cars);",
+            options,
+            errors: [{
+                message: 'prefer `console.table()` for debug an array',
+            }]
+        },
         // SequenceExpression
         {
             code: "function n(a,b){return b.abbr=a,P[a]||(P[a]=new d),P[a].set(b),P[a]}",
