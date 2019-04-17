@@ -17,6 +17,9 @@ const checkRule = function (ruleName) {
     
         valid: [
           "function foo() { return; }",
+          // https://github.com/eslint/eslint/issues/11611
+          "(((3496.29)).bkufyydt = 2e308) ? foo : bar",
+          "() => /*\n*/ (a = () => b) => c",
           {
             code: "var x; \n try { x = 1; } \n catch { ; };",
             parserOptions: { ecmaVersion: 2019 }, // 2019 only ?
