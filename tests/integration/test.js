@@ -42,7 +42,8 @@ const packages = new Map([
 	['emittery', 'https://github.com/sindresorhus/emittery'],
 	['p-queue', 'https://github.com/sindresorhus/p-queue'],
 	['pretty-bytes', 'https://github.com/sindresorhus/pretty-bytes'],
-	['normalize-url', 'https://github.com/sindresorhus/normalize-url']
+	['normalize-url', 'https://github.com/sindresorhus/normalize-url'],
+	//['knockout', 'https://github.com/knockout/knockout'], // ???
 ]);
 
 const cwd = path.join(__dirname, 'eslint-config-unicorn-tester');
