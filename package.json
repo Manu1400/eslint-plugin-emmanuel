@@ -43,7 +43,7 @@
     "lodash.isequal": "^4.5.0",
     "quote": "^0.4.0",
     "reflect-type-3": "^1.0.0",
-    "requireindex": "~1.2.0",
+    "requireindex": "^1.2.0",
     "xpath-analyzer": "^3.0.0",
     "xpath.js": "^1.1.0"
   },
