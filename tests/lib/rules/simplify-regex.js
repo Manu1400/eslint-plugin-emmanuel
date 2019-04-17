@@ -32,6 +32,13 @@ ruleTester.run('reject', rule, {
     {code: 'var simple = /[0a-v]+/;'},
     {code: '/[0a-v]+/'},
     {code: '/[abc]aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/'},
+    // from https://github.com/BrainMaestro/eslint-plugin-optimize-regex/blob/master/tests/lib/rules/optimize-regex.js
+    'var foo = /baz/i',
+    'var foo = /bar/mig',
+    'var foo = /\\/\\./',
+    'var foo = /[/\\\\]$/',
+    // https://github.com/knockout/knockout/blob/9893233413e467a40919237e524b545e335c1050/Gruntfile.js#L83
+    "var fragments = grunt.config('fragments'), \n sourceFilenames = [ \n fragments + 'extern-pre.js', \n fragments + 'amd-pre.js', \n getReferencedSources(fragments + 'source-references.js'), \n ]"
   ],
 
   invalid: [
