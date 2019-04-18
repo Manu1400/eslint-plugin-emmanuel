@@ -17,6 +17,8 @@ const checkRule = function (ruleName) {
     
         valid: [
           "function foo() { return; }",
+          // see https://github.com/mysticatea/eslint-plugin/blob/v9.0.1/docs/rules/no-literal-call.md
+          "function _123(){ ; }",
           // https://github.com/eslint/eslint/issues/11611
           "(((3496.29)).bkufyydt = 2e308) ? foo : bar",
           "() => /*\n*/ (a = () => b) => c",
