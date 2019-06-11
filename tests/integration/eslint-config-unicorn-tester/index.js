@@ -28,6 +28,8 @@ module.exports = {
     "emmanuel/no-useless-concat": "warn",
     "emmanuel/no-very-large-array": ["warn", {"maxValue": 10}],
     "emmanuel/securecontext": "warn",
-    "emmanuel/simplify-regex": "warn"
+    "emmanuel/simplify-regex": "warn",
+    "emmanuel/prefer-array-fill": "warn",
+    "emmanuel/no-similar-fn-params": ["warn", 2],
   }
 };
