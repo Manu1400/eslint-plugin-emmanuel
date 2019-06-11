@@ -126,30 +126,30 @@ ruleTester.run("no-restricted-syntax", rule, {
             code: "var a = `azerty`, b = `querty`",
             options,
             errors: [{
-                message: 'for tests, prefer real data',
+                message: 'for tests, prefer real data, see faker.js to generate massive amounts of fake data in the browser and node.js',
             }, {
-                message: 'for tests, prefer real data',
+                message: 'for tests, prefer real data, see faker.js to generate massive amounts of fake data in the browser and node.js',
             }]
         },
         {
             code: "var a = `azerty`;",
             options,
             errors: [{
-                message: 'for tests, prefer real data',
+                message: 'for tests, prefer real data, see faker.js to generate massive amounts of fake data in the browser and node.js',
             }]
         },
         {
             code: "var a = 'azerty'",
             options,
             errors: [{
-                message: 'for tests, prefer real data',
+                message: 'for tests, prefer real data, see faker.js to generate massive amounts of fake data in the browser and node.js',
             }]
         },
         {
             code: "var a = 'querty'",
             options,
             errors: [{
-                message: 'for tests, prefer real data',
+                message: 'for tests, prefer real data, see faker.js to generate massive amounts of fake data in the browser and node.js',
             }]
         },
         {
