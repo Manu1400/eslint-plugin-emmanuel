@@ -1,0 +1,8 @@
+{
+    "main": "index.d.ts",
+    "files": [
+      "globals.d.js",
+      "index.d.ts",
+      "reflect-type-3.d.ts"
+    ]
+}

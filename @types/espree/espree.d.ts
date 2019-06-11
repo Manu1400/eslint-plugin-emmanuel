@@ -4,7 +4,6 @@ declare namespace espree {
     }
     interface ParseOptions {
         comments: boolean;
-        attachComment: boolean;
     }
     interface Ast {
         comments: Comment[];
@@ -12,5 +11,5 @@ declare namespace espree {
 }
 
 declare module 'espree' {
-    export function parse(code: string | Buffer, options: any): espree.Ast;
+    export function parse(code: string | Buffer, options?: Object): Object; // espree.Ast
 }

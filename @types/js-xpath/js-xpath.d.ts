@@ -1,9 +1,9 @@
 interface step {
-    predicates: Array<any>,
+    predicates: any[];
 }
 
 interface obj {
-    steps: Array<step>,
+    steps: step[];
 }
 
 declare module 'js-xpath' {

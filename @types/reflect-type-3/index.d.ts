@@ -1,6 +1,6 @@
 type Int = number & { __int__: void };
 
-declare namespace Reflect {
+export declare namespace Reflect {
 
     //interface quantifier {
     //    str: "*" | "+" | "?";
