@@ -8,7 +8,7 @@ ruleTester.run("no-commented-out-code", rule, {
 
     valid: [
       {
-        code: "// this is a long comment about nothing",
+        code: "var a = 0;",
       },
       {
         code: "//this is a long comment about nothing",
@@ -27,9 +27,6 @@ ruleTester.run("no-commented-out-code", rule, {
       },
       {
         code: "// please don't call method getElement()",
-      },
-      {
-        code: "/*\n\n\n\n\n\n\n\n\n\n\n\n*/",
       },
       {
         code: "//TODO",
@@ -67,6 +64,9 @@ ruleTester.run("no-commented-out-code", rule, {
       {
         code: "/*flow-include\ntype Foo = {\nfoo: number\n};\n*/",
       },
+      {
+        code: "//; test",
+      },
     ],
 
     invalid: [
@@ -78,12 +78,6 @@ ruleTester.run("no-commented-out-code", rule, {
         },
         {
             code: "// item // comment in comment",
-            errors: [{
-                message: 'commented out code '
-            }]
-        },
-        {
-            code: "//; test",
             errors: [{
                 message: 'commented out code '
             }]
@@ -104,26 +98,32 @@ ruleTester.run("no-commented-out-code", rule, {
         {
             code: "/* var a = 1; \n const b = 2; \n var c = 3; */",
             errors: [{
-                message: 'commented out code '
+                message: 'commented out code ',
+                type: "Block"
             }]
         },
         {
             code: "//'use strict'",
             errors: [{
-                message: 'commented out code ' //`commented out code "'use strict'" (1 line)`
+                message: 'commented out code '
             }]
         },
         {
-            code: "// var a = 1",
+            code: "// var aaaaaaaaaaaaaaaa = 1",
             errors: [{
-                message: 'commented out code ' //`commented out code "var a = 1" (1 line)`
+                message: 'commented out code '
             }]
         },
         {
             code: "// const a = 1",
             errors: [{
-                message: 'commented out code ' //`commented out code "const a = 1" (1 line)`
+                message: 'commented out code '
             }]
+        }, {
+          code: "/*\n\n\n\n\n\n\n\n\n\n\n\n var a = 0 */",
+          errors: [{
+            message: 'commented out code '
+          }]
         },
     ]
 });
