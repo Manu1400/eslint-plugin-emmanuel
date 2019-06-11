@@ -97,6 +97,10 @@ ruleTester.run("no-restricted-syntax", rule, {
         code: "var nameValue;", // -> product
         options
       },
+      {
+        code: "var iconUrl = resourcePath + 'images/marker-flag-end-shadowed.png'",
+        options
+      },
     ],
 
     invalid: [
@@ -382,6 +386,18 @@ ruleTester.run("no-restricted-syntax", rule, {
             options,
             errors: [{
                 message: "/()/ instead of new RegExp()",
+            }]
+        }, {
+            code: "var iconUrl = resourcePath + 'images/marker-flag-end-shadowed.pngAA'",
+            options,
+            errors: [{
+                message: "iconURL value: icon gif|jpeg|jpg|png|svg not detetected in URL construction",
+            }]
+        }, {
+            code: "var iconURL = 'https://example.com/icon.pngdkk'",
+            options,
+            errors: [{
+                message: "iconURL value: icon gif|jpeg|jpg|png|svg not detetected in URL",
             }]
         },
     ]
