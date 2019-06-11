@@ -15,7 +15,8 @@
     "self/math-shortcut": "warn",
     "self/no-useless-concat": "warn",
     "self/url-needed": "warn",
-    "self/prefer-array-fill": "warn"
+    "self/prefer-array-fill": "warn",
+    "self/deterministic-stringify": "warn"
   },
   "plugins": [
     "self"
