@@ -8,6 +8,10 @@
     "node": true
   },
   "rules": {
+    "no-secrets/no-secrets":["warn",{
+      "tolerance": 5,
+      "additionalRegexes": { "JWT": "/$[A-Za-z0-9-_=]+\\.[A-Za-z0-9-_=]+\\.?[A-Za-z0-9-_.+/=]*^/" }
+      }],
     "no-cond-assign": "off",
     "no-unused-vars": "off",
     "no-redeclare": "off",
@@ -29,6 +33,7 @@
     "no-div-regex": "error",
     "node/shebang": "off",
     "unicorn/regex-shorthand": "warn",
+    "unicorn/prefer-query-selector": "warn",
     "id-length": ["warn", {"min": 1}],
     "no-global-assign": ["error", {"exceptions": ["__dirname", "__filename"]}],
     "no-magic-numbers": [
@@ -38,9 +43,9 @@
         "enforceConst": true
       }
     ],
-    "no-warning-comments": ["warn", { "terms": ["flemme", "hello world", "fuck", "fucking", "shit", "crappy", "stupid", ":poop:", "WTF", "////", "copy pasted", "💣", "⚠️", "/!\\", "!!", "slow", "impacté", "heavy"], "location": "anywhere" }],
+    "no-warning-comments": ["warn", { "terms": ["flemme", "hello world", "fuck", "fucking", "shit", "crappy", "stupid", ":poop:", "WTF", "////", "copy pasted", "💣", "⚠️", "/!\\", "!!", "slow", "impacté", "heavy", "Einstein", "utm_source"], "location": "anywhere" }],
     "id-blacklist": [
-      "warn", "data", "err", "e", "cb", "callback", "fn", "foo", "$FlowFixMe", "SequenceExpression", "rien", "clean", "myvar"
+      "warn", "data", "err", "e", "cb", "callback", "fn", "foo", "$FlowFixMe", "SequenceExpression", "rien", "clean", "myvar", "azerty", "querty", "$_"
     ],
     "no-empty-function": "warn",
     "no-unmodified-loop-condition": "warn",
@@ -97,6 +102,12 @@
       }, {
         "name": "@stdlib/math/base/special/log10",
         "message": "prefer Math.log10 function"
+      }, {
+        "name": "google-libphonenumber",
+        "message": "prefer `libphonenumber-js`: Much smaller footprint"
+      }, {
+        "name": "json-stable-stringify",
+        "message": "prefer `fast-json-stable-stringify`: faster version of @substack's json-stable-strigify without jsonify"
       }]
     }],
     "no-restricted-imports": ["warn", {
@@ -140,6 +151,12 @@
         "name": "twine",
         "importNames": ["Bindings", "tw"],
         "message": "Prefer Twine over Bindings as the name for twine imports. see https://github.com/Shopify/eslint-plugin-shopify/blob/master/docs/rules/prefer-twine.md"
+      }, {
+        "name": "compressorjs",
+        "message": "warning: works only in a browser"
+      }, {
+        "name": "domain",
+        "message": "warning: on browser, use very popular librairy `domain-browser`"
       }]
     }],
     "no-restricted-properties": ["warn", {
@@ -170,6 +187,10 @@
       "object": "Math",
       "property": "random",
       "message": "avoid `Math.random()` for a having determinist code, and read https://web.archive.org/web/20180816031017/http://devoluk.com:80/google-chrome-math-random-issue.html"
+    }, {
+      "object": "_",
+      "property": "random",
+      "message": "avoid `_.random()` to having pure function"
     }, {
       "object": "require",
       "message": "Please call require() directly."
@@ -209,6 +230,50 @@
     }],
     "no-restricted-syntax": [
       "warn",
+      {
+        "selector": "NewExpression[callee.name='RegExp'][arguments.length=0]",
+        "message": "/()/ instead of new RegExp()"
+      },
+      {
+        "selector": "FunctionDeclaration[id.name='notif']",
+        "message": "Use long and descriptive names"
+      },
+      {
+        "selector": "FunctionDeclaration[params.1.name='isPublic']",
+        "message": "isPublic"
+      },
+      {
+        "selector": "FunctionDeclaration[id.name=/is[a-zA-Z]+Not[a-zA-Z]+/]",
+        "message": "Avoid negative conditionals"
+      },
+      {
+        "selector": "MemberExpression[object.name='car'][property.name='carColor']",
+        "message": "Don't add unneeded context. Don't repeat you in your variable name"
+      },
+      {
+        "selector": "FunctionDeclaration[id.name='addToDate']",
+        "message": "Function names should say what they do"
+      },
+      {
+        "selector": "VariableDeclarator[id.name='done']",
+        "message": "Boolean variables, or functions that return a boolean value, should start with “is,” “has” or “should.”"
+      },
+      {
+        "selector": "VariableDeclarator[id.name=/[a-zA-Z]+FromServer/]",
+        "message": "don’t expose details of the implementation in the name"
+      },
+      {
+        "selector": "ExpressionStatement[expression.property.value]",
+        "message": "Use array destructuring"
+      },
+      {
+        "selector": "VariableDeclarator[id.name='date']",
+        "message": "Use a descriptive name for date"
+      },
+      {
+        "selector": "VariableDeclaration[declarations.0.id.name='arr'] + ExpressionStatement[expression.operator='=']",
+        "message": "Use [] Instead of New Array()"
+      },
       {
         "selector": "CallExpression[callee.object.name='console'][callee.property.name='log'][arguments.0.name='arr']",
         "message": "prefer `console.table(arr)` for debug an array"
@@ -322,6 +387,10 @@
         "message": "$x function is only available on browser console"
       },
       {
+        "selector": "CallExpression[callee.name='$$']",
+        "message": "$$ function is only available on browser console, prefer document.querySelectorAll()"
+      },
+      {
         "selector": "CallExpression[callee.name='Number'][arguments.0.value.length>16]",
         "message": "todo: repondre a https://github.com/eslint/eslint/issues/11279"
       },
@@ -334,12 +403,12 @@
         "message": ">1234567890123456 https://github.com/eslint/eslint/issues/11279"
       },
       {
-        "selector": "Literal[value=\"querty\"]",
-        "message": "for tests, prefer real data"
+        "selector": "Literal[value=/azerty|querty$/]",
+        "message": "for tests, prefer real data, see faker.js to generate massive amounts of fake data in the browser and node.js"
       },
       {
-        "selector": "Literal[value=\"azerty\"]",
-        "message": "for tests, prefer real data"
+        "selector": "[value.raw=/azerty|querty$/]",
+        "message": "for tests, prefer real data, see faker.js to generate massive amounts of fake data in the browser and node.js"
       },
       {
         "selector": "VariableDeclaration > VariableDeclarator[init.callee.name=\"importLazy\"][id.properties.0.kind=\"init\"]",
@@ -352,6 +421,30 @@
       {
         "selector": "CallExpression[callee.name=\"Boolean\"][arguments.0.type=\"CallExpression\"][arguments.0.callee.name=\"Boolean\"]",
         "message": "Double Boolean constructor all"
+      },
+      {
+        "selector": "CallExpression[callee.name=\"asap\"][arguments.0.type=\"FunctionExpression\"][arguments.0.params.0]",
+        "message": "don't use parameter(s), use an anonymous function with `asap` librairy"
+      },
+      {
+        "selector": "CallExpression[callee.object.name=\"Promise\"][callee.property.name=\"all\"][arguments.0.type=\"ArrayExpression\"]",
+        "message": "Promise.all([]), https://blog.impulsebyingeniance.io/software-technology/eviter-le-fail-fast-de-promise-all/"
+      },
+      {
+        "selector": "AssignmentExpression[operator=\"=\"][left.name=\"arr\"][right.callee.name=\"Promise\"]",
+        "message": "arr = new Promise(); -> avoid arr"
+      },
+      {
+        "selector": "NewExpression[callee.name=\"PasswordCredential\"][arguments]",
+        "message": "new PasswordCredential constructor: need an id not empty and a password"
+      },
+      {
+        "selector": "VariableDeclarator[id.name=\"iconURL\"][init.value!=/(gif|jpeg|jpg|png|svg)$/]",
+        "message": "iconURL value: icon gif|jpeg|jpg|png|svg not detetected in URL"
+      },
+      {
+        "selector": "VariableDeclaration > VariableDeclarator[id.name][init.operator=\"+\"][init.right.value!=/(gif|jpeg|jpg|png|svg)$/]",
+        "message": "iconURL value: icon gif|jpeg|jpg|png|svg not detetected in URL construction"
       }
     ]
   },
@@ -365,12 +458,16 @@
     "no-useless-assign",
     "jsdoc",
     "node",
-    "unicorn"
+    "unicorn",
+    "no-secrets"
   ],
   "extends": [
       "plugin:eslint-plugin/recommended",
       "eslint:recommended",
       "plugin:you-dont-need-lodash-underscore/compatible",
       "plugin:node/recommended"
-  ]
+  ],
+  "globals": {
+    "PasswordCredential": "readonly"
+  }
 }

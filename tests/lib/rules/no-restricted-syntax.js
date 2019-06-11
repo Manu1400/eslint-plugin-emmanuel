@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /**
  * @fileoverview 
  * @author Emmanuel
@@ -75,9 +76,82 @@ ruleTester.run("no-restricted-syntax", rule, {
         code: "var s = []; console.log(s);",
         options
       },
+      // https://devinduct.com/blogpost/22/javascript-clean-code-best-practices
+      {
+        code: "function notifyUser(emailAddress) {}",
+        options
+      },
+      // TODO: need a new Eslint rule for Avoid negative conditionals
+      // https://devinduct.com/blogpost/22/javascript-clean-code-best-practices
+      // good
+      {
+        code: "function isUserBlocked(user) {}",
+        options
+      },
+      // bad
+      {
+        code: "var theProduct;", // -> name
+        options
+      },
+      {
+        code: "var nameValue;", // -> product
+        options
+      },
     ],
 
     invalid: [
+        {
+            code: "$x()",
+            options,
+            errors: [{
+                message: "$x function is only available on browser console",
+            }]
+        },
+        {
+            code: "$$(\"a\")",
+            options,
+            errors: [{
+                message: "$$ function is only available on browser console, prefer document.querySelectorAll()",
+            }]
+        },
+        // for asap librairy: https://www.npmjs.com/package/asap
+        {
+            code: "asap(function (b) { ; });",
+            options,
+            errors: [{
+                message: "don't use parameter(s), use an anonymous function with `asap` librairy",
+            }]
+        },
+        {
+            code: "var a = `azerty`, b = `querty`",
+            options,
+            errors: [{
+                message: 'for tests, prefer real data',
+            }, {
+                message: 'for tests, prefer real data',
+            }]
+        },
+        {
+            code: "var a = `azerty`;",
+            options,
+            errors: [{
+                message: 'for tests, prefer real data',
+            }]
+        },
+        {
+            code: "var a = 'azerty'",
+            options,
+            errors: [{
+                message: 'for tests, prefer real data',
+            }]
+        },
+        {
+            code: "var a = 'querty'",
+            options,
+            errors: [{
+                message: 'for tests, prefer real data',
+            }]
+        },
         {
             code: "var arr = []; console.log(arr);",
             options,
@@ -204,6 +278,111 @@ ruleTester.run("no-restricted-syntax", rule, {
             errors: [{
                 message: ">1234567890123456 https://github.com/eslint/eslint/issues/11279",
             }]
-        }
+        }, {
+            // https://devinduct.com/blogpost/22/javascript-clean-code-best-practices
+            code: "function notif(user) {}",
+            options,
+            errors: [{
+                message: 'Use long and descriptive names',
+                type: "FunctionDeclaration"
+            }]
+        }, {
+            // https://devinduct.com/blogpost/22/javascript-clean-code-best-practices
+            code: "function createFile(name, isPublic) {}",
+            options,
+            errors: [{
+                message: 'isPublic', //TODO: change message
+                type: "FunctionDeclaration"
+            }]
+        }, {
+            // https://devinduct.com/blogpost/22/javascript-clean-code-best-practices
+            code: "function isUserNotBlocked(user) {}",
+            options,
+            errors: [{
+                message: 'Avoid negative conditionals',
+                type: "FunctionDeclaration"
+            }]
+        }, {
+            code: "function isDOMNodeNotPresent(user) {}",
+            options,
+            errors: [{
+                message: 'Avoid negative conditionals',
+                type: "FunctionDeclaration"
+            }]
+        }, {
+            // https://github.com/ryanmcdermott/clean-code-javascript#dont-add-unneeded-context
+            code: "function paintCar(car) { car.carColor = 'Red'; }",
+            options,
+            errors: [{
+                message: "Don't add unneeded context. Don't repeat you in your variable name",
+                type: "MemberExpression"
+            }]
+        }, {
+            // https://github.com/ryanmcdermott/clean-code-javascript#function-names-should-say-what-they-do
+            code: "function addToDate(date, month) {}",
+            options,
+            errors: [{
+                message: "Function names should say what they do",
+                type: "FunctionDeclaration"
+            }]
+        }, {
+            // https://americanexpress.io/clean-code-dirty-code/
+            code: "const done = current >= goal",
+            options,
+            errors: [{
+                message: "Boolean variables, or functions that return a boolean value, should start with “is,” “has” or “should.”",
+                type: "VariableDeclarator"
+            }]
+        }, {
+            code: "let done = current >= goal",
+            options,
+            errors: [{
+                message: "Boolean variables, or functions that return a boolean value, should start with “is,” “has” or “should.”",
+                type: "VariableDeclarator"
+            }]
+        }, {
+            code: "const loadConfigFromServer = () => {}",
+            options,
+            errors: [{
+                message: "don’t expose details of the implementation in the name",
+                type: "VariableDeclarator"
+            }]
+        }, /* {
+            // prefer-destructuring Eslint rule give a warning but don t autofix this case
+            code: "const language = locale.split('-')[0];",
+            options,
+            errors: [{
+                message: "Use array destructuring",
+            }]
+        }, */ {
+            // prefer-destructuring Eslint rule give a warning but don t autofix this case
+            code: "locale.split('-')[0];",
+            options,
+            errors: [{
+                message: "Use array destructuring",
+            }]
+        }, {
+            code: "var date = new Date()",
+            options,
+            errors: [{
+                message: "Use a descriptive name for date",
+            }]
+        }, {
+            // https://code.tutsplus.com/tutorials/24-javascript-best-practices-for-beginners--net-5399#14
+            code: "var arr = new Array(); arr[0] = 'Joe'",
+            options,
+            errors: [{
+                message: "Use [] Instead of New Array()",
+            }]
+        }, {
+            // https://www.w3schools.com/js/js_best_practices.asp
+            // /()/ instead of new RegExp()
+            // TODO: autofix
+            code: "new RegExp()",
+            options,
+            errors: [{
+                message: "/()/ instead of new RegExp()",
+            }]
+        },
     ]
 });
