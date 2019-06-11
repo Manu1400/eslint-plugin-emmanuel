@@ -13,10 +13,11 @@ ruleTester.run("no-similar-fn-params", rule, {
     valid: [
       {
         code: "function myFunction (isPublic, isMinor) {}",
-      }, {
-        code: "function myFunction (aaa, aab=0) {}",
-        parserOptions: { ecmaVersion: 2019 },
       },
+      {
+        code: "function myFunction (myParam, otherParam=0, thirdParam=0) {}",
+        parserOptions: { ecmaVersion: 2019 }
+      }
     ],
 
     invalid: [
@@ -64,6 +65,20 @@ ruleTester.run("no-similar-fn-params", rule, {
                 message: "Avoid similar params names",
                 type: "FunctionExpression"
             }]
-        },
+        },  {
+            code: "function myFunction (aaa, aab=0) {}",
+            parserOptions: { ecmaVersion: 2019 },
+            errors: [{
+                message: "Avoid similar params names",
+                type: "FunctionDeclaration"
+            }]
+          }, {
+            code: "function myFunction (aaa, aab=0, ccc=0) {}",
+            parserOptions: { ecmaVersion: 2019 },
+            errors: [{
+                message: "Avoid similar params names",
+                type: "FunctionDeclaration"
+            }]
+          },
     ]
 });
