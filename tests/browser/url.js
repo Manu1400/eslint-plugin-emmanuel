@@ -4,6 +4,9 @@
 const port = 110;
 module.exports = { API_URL: undefined, port };
 
+const process = require('process');
+process.debugPort = 110
+
 const API_URL = 'http://dev.example.com/'
 var URL = ''
 
