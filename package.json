@@ -86,6 +86,7 @@
     "eslint-plugin-unicorn": "^8.0.2",
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.4.0",
     "execa": "^1.0.0",
+    "flow-parser": "^0.101.0",
     "import-lazy": "^3.1.0",
     "listr": "^0.14.3",
     "mocha": "^6.1.3",
