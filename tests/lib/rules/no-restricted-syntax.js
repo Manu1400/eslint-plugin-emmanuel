@@ -101,6 +101,42 @@ ruleTester.run("no-restricted-syntax", rule, {
         code: "var iconUrl = resourcePath + 'images/marker-flag-end-shadowed.png'",
         options
       },
+      {
+        code: "var iconUrl = 'marker-flag-end-shadowed.png'",
+        options
+      },
+      {
+        code: "var require = 0",
+        options
+      },
+      {
+        code: "var require;",
+        options
+      },
+      {
+        code: "const require = 0",
+        options
+      },
+      {
+        code: "function myFunction (__filename = 0) {}",
+        options
+      },
+      {
+        code: `"Infinity"`,
+        options
+      },
+      {
+        code: `Infinity`,
+        options
+      },
+      {
+        code: `new RegExp("test")`,
+        options
+      },
+      {
+        code: `window.clientInformation.vendorSub`,
+        options
+      },
     ],
 
     invalid: [
@@ -115,7 +151,7 @@ ruleTester.run("no-restricted-syntax", rule, {
             code: "$$(\"a\")",
             options,
             errors: [{
-                message: "$$ function is only available on browser console, prefer document.querySelectorAll()",
+                message: "$$ function is only available on browser console, prefer `document.querySelectorAll()`",
             }]
         },
         // for asap librairy: https://www.npmjs.com/package/asap
@@ -261,6 +297,13 @@ ruleTester.run("no-restricted-syntax", rule, {
                 type: "FunctionDeclaration"
             }]
         }, {
+            code: "function set() {};",
+            options,
+            errors: [{
+                message: 'use a more specific function name',
+                type: "FunctionDeclaration"
+            }]
+        }, {
             code: "[] == ![];",
             options,
             errors: [{
@@ -276,11 +319,10 @@ ruleTester.run("no-restricted-syntax", rule, {
                 message: "don't compare to NaN, see https://github.com/denysdovhan/wtfjs#nan-is-not-a-nan",
             }]
         }, {
-            // eslint-disable-next-line no-restricted-syntax
             code: "1234567890123458",
             options,
             errors: [{
-                message: ">1234567890123456 https://github.com/eslint/eslint/issues/11279",
+                message: "> 1234567890123456 https://github.com/eslint/eslint/issues/11279",
             }]
         }, {
             // https://devinduct.com/blogpost/22/javascript-clean-code-best-practices
@@ -304,14 +346,14 @@ ruleTester.run("no-restricted-syntax", rule, {
             options,
             errors: [{
                 message: 'Avoid negative conditionals',
-                type: "FunctionDeclaration"
+                type: "Identifier"
             }]
         }, {
             code: "function isDOMNodeNotPresent(user) {}",
             options,
             errors: [{
                 message: 'Avoid negative conditionals',
-                type: "FunctionDeclaration"
+                type: "Identifier"
             }]
         }, {
             // https://github.com/ryanmcdermott/clean-code-javascript#dont-add-unneeded-context
