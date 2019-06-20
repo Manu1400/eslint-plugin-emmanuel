@@ -45,7 +45,7 @@
     ],
     "no-warning-comments": ["warn", { "terms": ["flemme", "hello world", "fuck", "fucking", "shit", "crappy", "stupid", ":poop:", "WTF", "////", "copy pasted", "💣", "⚠️", "/!\\", "!!", "slow", "impacté", "heavy", "Einstein", "utm_source"], "location": "anywhere" }],
     "id-blacklist": [
-      "warn", "data", "err", "e", "cb", "callback", "fn", "foo", "$FlowFixMe", "SequenceExpression", "rien", "clean", "myvar", "azerty", "querty", "$_"
+      "warn", "data", "err", "e", "cb", "callback", "fn", "foo", "$FlowFixMe", "SequenceExpression", "rien", "clean", "myvar", "azerty", "querty", "$_", "require", "usersList"
     ],
     "no-empty-function": "warn",
     "no-unmodified-loop-condition": "warn",
@@ -108,6 +108,12 @@
       }, {
         "name": "json-stable-stringify",
         "message": "prefer `fast-json-stable-stringify`: faster version of @substack's json-stable-strigify without jsonify"
+      }, {
+        "name": "ago",
+        "message": "prefer native `Intl.RelativeTimeFormat`: see https://v8.dev/features/intl-relativetimeformat"
+      }, {
+        "name": "process",
+        "message": "Hard: Disallow process.exit()"
       }]
     }],
     "no-restricted-imports": ["warn", {
@@ -157,6 +163,10 @@
       }, {
         "name": "domain",
         "message": "warning: on browser, use very popular librairy `domain-browser`"
+      }, {
+        "name": "react-native",
+        "importNames": ["DatePickerIOS"],
+        "message": "only IOS, prefer `react-native-modal-datetime-picker`"
       }]
     }],
     "no-restricted-properties": ["warn", {
@@ -204,7 +214,7 @@
       "message": "`Avoid window.$x()` works only on console"
     }, {
       "object": "clientInformation",
-      "message": "prefer 'navigator' object"
+      "message": "prefer 'navigator' or 'window.navigator' object"
     }, {
       "property": "getYear",
       "message": "Deprecated, use getFullYear() method"
@@ -243,7 +253,7 @@
         "message": "isPublic"
       },
       {
-        "selector": "FunctionDeclaration[id.name=/is[a-zA-Z]+Not[a-zA-Z]+/]",
+        "selector": "Identifier[name=/is[a-zA-Z]+Not[a-zA-Z]+/]",
         "message": "Avoid negative conditionals"
       },
       {
@@ -261,6 +271,10 @@
       {
         "selector": "VariableDeclarator[id.name=/[a-zA-Z]+FromServer/]",
         "message": "don’t expose details of the implementation in the name"
+      },
+      {
+        "selector": "VariableDeclarator[id.name=/[a-zA-Z]+List/]",
+        "message": "prefer `listUsers` over `usersList`, see https://github.com/haskellcamargo/js-real-world-functional-programming#do-5"
       },
       {
         "selector": "ExpressionStatement[expression.property.value]",
@@ -292,7 +306,7 @@
       },
       {
         "selector": "ClassDeclaration[superClass.raw=\"null\"]",
-        "message": "avoid extends null, see https://github.com/denysdovhan/wtfjs#function-is-not-a-function"
+        "message": "avoid extends null, see https://github.com/denysdovhan/wtfjs#function-is-not-a-function and https://eslint.org/docs/rules/constructor-super"
       },
       {
         "selector": "FunctionDeclaration[id.name='fn']",
@@ -388,7 +402,7 @@
       },
       {
         "selector": "CallExpression[callee.name='$$']",
-        "message": "$$ function is only available on browser console, prefer document.querySelectorAll()"
+        "message": "$$ function is only available on browser console, prefer `document.querySelectorAll()`"
       },
       {
         "selector": "CallExpression[callee.name='Number'][arguments.0.value.length>16]",
@@ -399,8 +413,8 @@
         "message": "todo: a finir, prefer BigInt (available on Node only) https://github.com/eslint/eslint/issues/11279"
       },
       {
-        "selector": "Literal[value>1234567890123456]",
-        "message": ">1234567890123456 https://github.com/eslint/eslint/issues/11279"
+        "selector": "Literal[value>1234567890123456]:not([value.length])",
+        "message": "> 1234567890123456 https://github.com/eslint/eslint/issues/11279"
       },
       {
         "selector": "Literal[value=/azerty|querty$/]",
