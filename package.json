@@ -52,11 +52,13 @@
     "reflect-type-3": "^1.0.0",
     "requireindex": "^1.2.0",
     "s-sortbydistance": "^1.1.0",
+    "safe-eval": "^0.4.1",
     "xpath-analyzer": "^3.0.0"
   },
   "devDependencies": {
     "@getify/eslint-plugin-proper-ternary": "^3.0.1",
     "@manu1400/eslint-plugin-jsonschema": "^0.3.2",
+    "@types/del": "^4.0.0",
     "@types/eslint": "^4.16.6",
     "@types/execa": "^0.9.0",
     "@types/is-url": "^1.2.28",
