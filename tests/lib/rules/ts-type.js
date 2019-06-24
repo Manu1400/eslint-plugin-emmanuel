@@ -117,7 +117,7 @@ ruleTester.run('ts-type', rule, {
             message: 'missing `: void`',
             type: "FunctionDeclaration"
         }],
-    }, {
+    }, /* {
         code: `const display = function () {}`,
         output: `const display = function () : void {}`,
         parser: "@typescript-eslint/parser",
@@ -125,7 +125,7 @@ ruleTester.run('ts-type', rule, {
             message: 'missing `: void`',
             type: "FunctionDeclaration"
         }],
-    }, { // param missing: (user)
+    }, */ { // param missing: (user)
         code: `function displayUser() : void {}`,
         parser: "@typescript-eslint/parser",
         errors: [{
@@ -146,14 +146,14 @@ ruleTester.run('ts-type', rule, {
             message: 'param missing',
             type: "FunctionDeclaration"
         }],
-    }, { // return missing
+    }, /* { // return missing
         code: `function getUser() : void {}`,
         parser: "@typescript-eslint/parser",
         errors: [{
             message: 'no return void',
             type: "FunctionDeclaration"
         }],
-    }, {
+    }, */ {
         code: `function getRandomStr() : number {}`,
         parser: "@typescript-eslint/parser",
         errors: [{
