@@ -1,4 +1,4 @@
-# Detect commented code (no-commented-out-code)
+# avoid typing mistake (avoid-typing-mistake)
 
 Please describe the origin of the rule here.
 

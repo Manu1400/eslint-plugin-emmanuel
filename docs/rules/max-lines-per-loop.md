@@ -1,4 +1,4 @@
-# Detect commented code (no-commented-out-code)
+# Max lines per a loop (max-lines-per-loop)
 
 Please describe the origin of the rule here.
 

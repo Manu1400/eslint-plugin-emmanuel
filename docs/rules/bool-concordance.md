@@ -1,4 +1,4 @@
-# Detect commented code (no-commented-out-code)
+# check type concordance on boolean properties values (bool-concordance)
 
 Please describe the origin of the rule here.
 

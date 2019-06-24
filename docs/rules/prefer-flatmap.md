@@ -1,4 +1,4 @@
-# Detect commented code (no-commented-out-code)
+# slow code, prefer `flatMap` method (prefer-flatmap)
 
 Please describe the origin of the rule here.
 

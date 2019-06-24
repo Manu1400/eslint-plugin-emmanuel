@@ -1,4 +1,4 @@
-# Detect commented code (no-commented-out-code)
+# avoid arguments mistake, like same string arguments in a function call (no-same-arguments)
 
 Please describe the origin of the rule here.
 

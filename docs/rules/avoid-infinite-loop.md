@@ -1,4 +1,4 @@
-# Detect commented code (no-commented-out-code)
+# disallow easy infinite loop (avoid-infinite-loop)
 
 Please describe the origin of the rule here.
 

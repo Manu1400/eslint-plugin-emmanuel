@@ -1,4 +1,4 @@
-# is URL (url-needed)
+# .. (url-needed)
 
 Please describe the origin of the rule here.
 

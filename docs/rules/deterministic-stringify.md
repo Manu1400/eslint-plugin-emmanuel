@@ -1,4 +1,4 @@
-#  (deterministic-stringify)
+# prefer fast-json-stable-stringify package to native JSON.stringify() (deterministic-stringify)
 
 Please describe the origin of the rule here.
 

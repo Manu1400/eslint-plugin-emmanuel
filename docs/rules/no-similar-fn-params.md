@@ -1,4 +1,4 @@
-# Detect commented code (no-commented-out-code)
+# Avoid similar params names (no-similar-fn-params)
 
 Please describe the origin of the rule here.
 

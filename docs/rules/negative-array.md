@@ -1,4 +1,4 @@
-# Detect commented code (no-commented-out-code)
+# avoid negative index on an array (negative-array)
 
 Please describe the origin of the rule here.
 

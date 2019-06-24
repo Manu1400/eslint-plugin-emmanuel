@@ -1,4 +1,4 @@
-# Detect commented code (no-commented-out-code)
+# .. (ts-type)
 
 Please describe the origin of the rule here.
 

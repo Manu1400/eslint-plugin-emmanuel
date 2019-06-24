@@ -1,4 +1,4 @@
-# Detect commented code (no-commented-out-code)
+# avoid use a native name for a class name (avoid-class-name-conflict)
 
 Please describe the origin of the rule here.
 
