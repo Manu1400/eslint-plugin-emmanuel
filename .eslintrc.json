@@ -78,9 +78,24 @@
       }
   ],
     "no-restricted-modules": ["warn", {
+      "patterns": [
+        "*rand*"
+      ],
       "paths":[{
         "name": "eslint-docs",
         "message": "eslint-docs is not a require module. Please, use only as command"
+      }, {
+        "name": "randomfill",
+        "message": "random, avoid this on a pure function"
+      }, {
+        "name": "nanoid/non-secure",
+        "message": "non-secure API: only on Web Workers"
+      }, {
+        "name": "nanoid/format",
+        "message": "prefer `nanoid/async/format`"
+      }, {
+        "name": "nanoid/generate",
+        "message": "prefer `nanoid/async/generate`"
       }, {
         "name": "require-from-string",
         "message": "prefer require file. file: (file protocol) is supported by package.json since version 2.0.0 of npm"
