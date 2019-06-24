@@ -141,7 +141,13 @@ const invalid = [
   */
 ]
 
-var ruleTester = new RuleTester();
+var ruleTester = new RuleTester({parser: "espree"});
+ruleTester.run("compare-regex", rule, { valid, invalid });
+
+var ruleTester = new RuleTester({parser: "flow-parser"});
+ruleTester.run("compare-regex", rule, { valid, invalid });
+
+var ruleTester = new RuleTester({parser: "babel-eslint"});
 ruleTester.run("compare-regex", rule, { valid, invalid });
 
 // for doing statistics about tests
