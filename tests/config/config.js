@@ -9,11 +9,11 @@ const { rules } = require("../../");
 
 // other solution: https://eslint.org/docs/developer-guide/nodejs-api#clienginegetconfigforfile
 // ... https://eslint.org/docs/developer-guide/nodejs-api#clienginegetrules
-const checkRule = function (ruleName) {
+const checkRule = function (ruleName, parser="espree") {
     const rule = rules[ruleName] // require("../../lib/rules/" + ruleName)
-    const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2017 } });
+    const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2017 }, parser });
 
-    ruleTester.run(ruleName, rule, {
+    ruleTester.run(ruleName + ", parser: " + parser, rule, {
     
         valid: [
           "function foo() { return; }",
@@ -88,6 +88,21 @@ const checkRule = function (ruleName) {
             code: ".5 + .1",
           },
           {
+            code: "0 > a",
+          },
+          {
+            code: "var isActive = test || true",
+          },
+          {
+            code: "// WTF",
+          },
+          {
+            code: "var a, a",
+          },
+          {
+            code: "var a=0, a=0", // first `a=0`
+          },
+          {
             code: "Math.PI * Math.random(); ",
           },
           {
@@ -110,10 +125,70 @@ const checkRule = function (ruleName) {
         ],
     
         invalid: [
+          {
+            code: `
+            [2, 3, 4].map(duplicate).flat()
+            new Compressor(file, {quality: 0.6}, argument);
+            var bool = /abc/i != /efg/
+            var module = require('module');
+            var samemodule = require('module');
+            class MSTest {}
+            class t { CONSTRUCTOR(user) { console.log(user) } }
+            require();
+            var opts = {'noCache': 0}
+            var API_URL = 2.220446049250313e-16
+            var a = "" + ""
+            Math.hypot(dx, dx);
+            function x(){const x = 1;}
+            Array(10000000000)
+            var simple = /[abc]/;
+            /a/ !== /e/
+            /abc/ != /efg/
+            isSecureContext()
+            ['', '', '', '', '']
+            [1, 1, 1]
+            var c = [a, a, a];
+            var require;
+            JSON.stringify(obj);
+            !!a
+            document.evaluate("//book/title | //book/title", document)
+            1 / 0
+            var closed = 0
+            Math.exp(1);
+            [2, 3, 4][-2]
+            Compressor.setDefaults();
+            // elephant + zoo
+            // comment 1
+            // comment 1
+            // comment 1
+            // comment 1
+            // comment 1
+            // comment 1
+            // comment 1
+            // comment 1
+            // comment 1
+            // comment 1
+            for(;;){}
+            Number(0);
+            function myFunction (aaaaaa, aaaaaab) {}`,
+            errors: 1
+          }
         ]
     });
 }
 
 Object.keys(rules).forEach(function (rulename) {
-  checkRule(rulename)
+  if (rulename == "max-lines-per-loop") {
+    return;
+  }
+  if (rulename === "ts-type") {
+    //TODO: only valid ??
+    checkRule(rulename, "@typescript-eslint/parser")
+  } else {
+    checkRule(rulename)
+    checkRule(rulename, "babel-eslint")
+    checkRule(rulename, "flow-parser")
+    //TODO: tester si la dependence est installee
+    checkRule(rulename, "@typescript-eslint/parser")
+  }
 })
