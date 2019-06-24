@@ -37,12 +37,6 @@ const valid = [
         `
     },
     {
-        code: `while(eval("true")){}`
-    },
-    {
-        code: `while(window.eval("true")){}`
-    },
-    {
         code: `var a = 0; while(parseInt(a)){ }`
     },
     {
@@ -290,6 +284,12 @@ const invalid = [
                 messageId: "maybeInfiniteLoop",
                 type: "BinaryExpression"
             }]
+    }, {
+        code: `while(eval("true")){}`,
+        errors: 0
+    }, {
+        code: `while(window.eval("true")){}`,
+        errors: 0
     },
 ]
 
