@@ -8,10 +8,6 @@
     "node": true
   },
   "rules": {
-    "no-secrets/no-secrets":["off",{
-      "tolerance": 5,
-      "additionalRegexes": { "JWT": "/$[A-Za-z0-9-_=]+\\.[A-Za-z0-9-_=]+\\.?[A-Za-z0-9-_.+/=]*^/" }
-      }],
     "no-cond-assign": "off",
     "no-unused-vars": "off",
     "no-redeclare": "off",
@@ -486,8 +482,7 @@
     "no-useless-assign",
     "jsdoc",
     "node",
-    "unicorn",
-    "no-secrets"
+    "unicorn"
   ],
   "extends": [
       "eslint:recommended",
