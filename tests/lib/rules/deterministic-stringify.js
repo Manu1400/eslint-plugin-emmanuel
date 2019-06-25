@@ -32,7 +32,7 @@ const invalid = [
   },
   {
     code: "JSON.stringify(obj);",
-    output: "require(\"fast-json-stable-stringify package\")(obj);",
+    output: "require(\"fast-json-stable-stringify\")(obj);",
     errors: [{
       message: 'prefer fast-json-stable-stringify package',
       type: "CallExpression"
@@ -40,7 +40,7 @@ const invalid = [
   },
   {
     code: "var str = JSON.stringify(obj);",
-    output: "var str = require(\"fast-json-stable-stringify package\")(obj);",
+    output: "var str = require(\"fast-json-stable-stringify\")(obj);",
     errors: [{
       message: 'prefer fast-json-stable-stringify package',
       type: "CallExpression"
@@ -48,7 +48,7 @@ const invalid = [
   },
   {
     code: "JSON.stringify(new Date(2006, 0, 2, 15, 4, 5))",
-    output: "require(\"fast-json-stable-stringify package\")(new Date(2006, 0, 2, 15, 4, 5))",
+    output: "require(\"fast-json-stable-stringify\")(new Date(2006, 0, 2, 15, 4, 5))",
     errors: [{
       message: 'prefer fast-json-stable-stringify package',
       type: "CallExpression"
