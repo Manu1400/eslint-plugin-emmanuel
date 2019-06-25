@@ -23,20 +23,20 @@ Object.keys(rules).forEach(function (rulename) {
     describe(rulename, function() {
         describe('description of the rule', function() {
           it('should having long description', function() {
-            assert.equal((meta.docs.description || '').length >= 5, true);
+            assert.strictEqual((meta.docs.description || '').length >= 5, true);
           });
           it('should having an documentation URL', function() {
-            assert.equal(typeof meta.docs.url, 'string');
+            assert.strictEqual(typeof meta.docs.url, 'string');
           });
           it('should having an good documentation URL', function() {
             //console.warn(meta.docs.url)
-            assert.equal(isUrl(meta.docs.url), true);
+            assert.strictEqual(isUrl(meta.docs.url), true);
           });
           it('should having a category', function() {
-            assert.equal(typeof (category), 'string');
+            assert.strictEqual(typeof (category), 'string');
           });
           it('should having a good category', function() {
-            assert.equal(checkCategory(category), true);
+            assert.strictEqual(checkCategory(category), true);
           });
         });
     });
