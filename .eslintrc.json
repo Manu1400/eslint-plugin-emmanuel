@@ -8,7 +8,7 @@
     "node": true
   },
   "rules": {
-    "no-secrets/no-secrets":["warn",{
+    "no-secrets/no-secrets":["off",{
       "tolerance": 5,
       "additionalRegexes": { "JWT": "/$[A-Za-z0-9-_=]+\\.[A-Za-z0-9-_=]+\\.?[A-Za-z0-9-_.+/=]*^/" }
       }],
@@ -483,7 +483,6 @@
     "nuxt",
     "json",
     "arithmetic",
-    "eslint-plugin",
     "no-useless-assign",
     "jsdoc",
     "node",
@@ -491,7 +490,6 @@
     "no-secrets"
   ],
   "extends": [
-      "plugin:eslint-plugin/recommended",
       "eslint:recommended",
       "plugin:you-dont-need-lodash-underscore/compatible",
       "plugin:node/recommended"
