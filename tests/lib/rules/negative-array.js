@@ -41,34 +41,37 @@ const valid = [
 const invalid = [
   {
     code: "['🐴', '🎂', '🌈'][-1]",
-    //output: `negativeArray(['🐴', '🎂', '🌈'])[-1]`,
+    output: `negativeArray(['🐴', '🎂', '🌈'])[-1]`,
     errors: [{
-      message: `negative array`,
+      message: `use package negative-array to having negative array index support`,
       type: "MemberExpression"
     }]
   }, {
     code: "['🐴', '🎂', '🌈'][-6]",
-    //output: `negativeArray(['🐴', '🎂', '🌈'])[-1]`,
+    output: `negativeArray(['🐴', '🎂', '🌈'])[-6]`,
     errors: [{
-      message: `negative array`,
+      message: `use package negative-array to having negative array index support`,
       type: "MemberExpression"
     }]
   }, {
     code: "['🐴', '🎂', '🌈'][(-1)]",
+    output: "negativeArray(['🐴', '🎂', '🌈'])[-1]", // strange ?
     errors: [{
-      message: `negative array`,
+      message: `use package negative-array to having negative array index support`,
       type: "MemberExpression"
     }]
   }, {
     code: "['🐴', '🎂', '🌈'][-(1)]",
+    output: "negativeArray(['🐴', '🎂', '🌈'])[-(1)]",
     errors: [{
-      message: `negative array`,
+      message: `use package negative-array to having negative array index support`,
       type: "MemberExpression"
     }]
   }, {
     code: "[][-(1)]",
+    output: "negativeArray([])[-(1)]",
     errors: [{
-      message: `negative array`,
+      message: `use package negative-array to having negative array index support`,
       type: "MemberExpression"
     }]
   }, {
