@@ -1,8 +1,0 @@
-{
-    "plugins": [
-        "eslint-plugin"
-    ],
-    "extends": [
-        "plugin:eslint-plugin/rules-recommended"
-    ]
-}
