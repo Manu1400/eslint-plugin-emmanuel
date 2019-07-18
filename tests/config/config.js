@@ -170,6 +170,11 @@ const checkRule = function (ruleName, parser="espree") {
             // comment 1
             keys()
             for(;;){}
+            try {
+              try {
+                ;
+              } catch (err0) {}
+            } catch (err) {}
             Number(0);
             function myFunction (aaaaaa, aaaaaab) {}`,
             errors: 1

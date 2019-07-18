@@ -64,6 +64,7 @@ declare global {
   type ArrayExpression = estree.ArrayExpression
   //type Pattern = estree.Pattern
   type RegExpLiteral = estree.RegExpLiteral
+  type TryStatement = estree.TryStatement
   
   //interface SimpleLiteral extends estree.SimpleLiteral {
     //value:number

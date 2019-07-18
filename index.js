@@ -33,6 +33,7 @@ module.exports = {
 		'simplify-regex': require('./lib/rules/simplify-regex'),
 		'too-many-comments': require('./lib/rules/too-many-comments'),
 		'ts-type': require('./lib/rules/ts-type'),
+		'try-catch-in-try-catch': require('./lib/rules/try-catch-in-try-catch'),
 		'url-needed': require('./lib/rules/url-needed')
 	},
 	configs: {
