@@ -168,6 +168,7 @@ const checkRule = function (ruleName, parser="espree") {
             // comment 1
             // comment 1
             // comment 1
+            keys()
             for(;;){}
             Number(0);
             function myFunction (aaaaaa, aaaaaab) {}`,
