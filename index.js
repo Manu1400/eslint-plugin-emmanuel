@@ -26,6 +26,7 @@ module.exports = {
 		'no-special-number': require('./lib/rules/no-special-number'),
 		'no-useless-concat': require('./lib/rules/no-useless-concat'),
 		'no-very-large-array': require('./lib/rules/no-very-large-array'),
+		'no-window-shortcut': require('./lib/rules/no-window-shortcut'),
 		'prefer-array-fill': require('./lib/rules/prefer-array-fill'),
 		'prefer-flatmap': require('./lib/rules/prefer-flatmap'),
 		'securecontext': require('./lib/rules/securecontext'),
