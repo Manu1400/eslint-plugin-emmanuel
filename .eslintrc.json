@@ -25,11 +25,34 @@
     "no-undef": "warn",
     "no-use-before-define": "warn",
     "no-self-compare": "warn",
-    "global-require": "warn",
+    "global-require": "off",
     "no-div-regex": "error",
     "node/shebang": "off",
     "unicorn/regex-shorthand": "warn",
     "unicorn/prefer-query-selector": "warn",
+    "no-extend-native": "error",
+    "pureness/forbidden-expressions": ["warn", {
+      "masks": "*",
+      "expressions": ["Date.now", "_.now", "process.setuid", "process.*", "Math.random", "_.random", "*.push", "*.pop", "document.*"]
+    }],
+    "pureness/forbid-new": ["warn",
+      {
+        "masks": "*",
+        "allow-with-params": ["Date"]
+      },
+      {
+        "masks": "*",
+        "allow": ["Promise", "RuleTester"]
+      }
+    ],
+    "pureness/forbidden-import": ["error",
+      {
+        "masks": "*",
+        "modules": [
+          "lodash.random", "random", "nanoid", "react-native-securerandom", "get-port", "tempfile", "chance"
+        ]
+      }
+    ],
     "id-length": ["warn", {"min": 1}],
     "no-global-assign": ["error", {"exceptions": ["__dirname", "__filename"]}],
     "no-magic-numbers": [
@@ -39,9 +62,9 @@
         "enforceConst": true
       }
     ],
-    "no-warning-comments": ["warn", { "terms": ["flemme", "hello world", "fuck", "fucking", "shit", "crappy", "stupid", ":poop:", "WTF", "////", "copy pasted", "💣", "⚠️", "/!\\", "!!", "slow", "impacté", "heavy", "Einstein", "utm_source"], "location": "anywhere" }],
+    "no-warning-comments": ["warn", { "terms": ["flemme", "hello world", "fuck", "fucking", "shit", "crappy", "stupid", ":poop:", "WTF", "////", "copy pasted", "💣", "⚠️", "/!\\", "!!", "slow", "impacté", "heavy", "Einstein", "utm_source", "O(N!)"], "location": "anywhere" }],
     "id-blacklist": [
-      "warn", "data", "err", "e", "cb", "callback", "fn", "foo", "$FlowFixMe", "SequenceExpression", "rien", "clean", "myvar", "azerty", "querty", "$_", "require", "usersList"
+      "warn", "data", "err", "e", "cb", "callback", "fn", "foo", "$FlowFixMe", "SequenceExpression", "rien", "clean", "myvar", "azerty", "querty", "$_", "require", "usersList", "caches"
     ],
     "no-empty-function": "warn",
     "no-unmodified-loop-condition": "warn",
@@ -482,7 +505,8 @@
     "no-useless-assign",
     "jsdoc",
     "node",
-    "unicorn"
+    "unicorn",
+    "pureness"
   ],
   "extends": [
       "eslint:recommended",
