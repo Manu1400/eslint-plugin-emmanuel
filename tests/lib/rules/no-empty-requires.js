@@ -41,6 +41,9 @@ ruleTester.run("no-empty-requires", rule, {
       },
       {
         code: "var foo = require('foo' + VERSION); var bar = require('foo')"
+      },
+      {
+        code: "require(0)"
       }
     ],
 
